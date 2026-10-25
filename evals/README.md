@@ -153,6 +153,12 @@ CI (`.github/workflows/evals.yml`, manual or on pull requests to `main`) runs th
 
 ## Latest results
 
-See `reports/` for the full comparison.
+Run 2026-10-25, 71 runnable cases (full report: `reports/2026-10-25-comparison.md`).
+Only the local configuration could run; cloud configurations need provider keys.
 
-RESULTS_TABLE_PLACEHOLDER
+| Config | Errors | Accuracy | Block recall | False block | Pause | Evidence cov. | p95 s | Tokens/case | Cost/case |
+|---|---|---|---|---|---|---|---|---|---|
+| `ollama-qwen` | 15 | 41% | 67% | 0% | 30% | 88% | 183 | 8,628 | $0 |
+
+The 15 errors come from one bug, the same for every model: checkpointing crashes when
+a profile balance is 2^64 wei (about 18.45 ETH) or more. See the report.
