@@ -1,0 +1,67 @@
+<?xml version="1.0" standalone="yes"?>
+<sdnList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/XML">
+  <publshInformation>
+    <Publish_Date>10/21/2026</Publish_Date>
+    <Record_Count>3</Record_Count>
+  </publshInformation>
+  <sdnEntry>
+    <uid>900001</uid>
+    <lastName>EXAMPLE CYBER GROUP</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>CYBER2</program>
+      <program>DPRK3</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>1</uid>
+        <idType>Digital Currency Address - ETH</idType>
+        <idNumber>0x5A5A5A5A5A5A5A5A5A5A5A5A5A5A5A5A5A5A5A5A</idNumber>
+      </id>
+      <id>
+        <uid>2</uid>
+        <idType>Digital Currency Address - XBT</idType>
+        <idNumber>bc1qexampleexampleexampleexampleexample00</idNumber>
+      </id>
+      <id>
+        <uid>3</uid>
+        <idType>Digital Currency Address - USDT</idType>
+        <idNumber>0x6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b</idNumber>
+      </id>
+      <id>
+        <uid>4</uid>
+        <idType>Digital Currency Address - TRX</idType>
+        <idNumber>TExampleTronAddress000000000000000</idNumber>
+      </id>
+    </idList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>900002</uid>
+    <firstName>Jane</firstName>
+    <lastName>EXAMPLE</lastName>
+    <sdnType>Individual</sdnType>
+    <programList>
+      <program>ILLICIT-DRUGS-EO14059</program>
+    </programList>
+    <idList>
+      <id>
+        <uid>5</uid>
+        <idType>Passport</idType>
+        <idNumber>X0000000</idNumber>
+      </id>
+      <id>
+        <uid>6</uid>
+        <idType>Digital Currency Address - ETH</idType>
+        <idNumber>0x7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c</idNumber>
+      </id>
+    </idList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>900003</uid>
+    <lastName>EXAMPLE SHIPPING LTD</lastName>
+    <sdnType>Entity</sdnType>
+    <programList>
+      <program>IRAN</program>
+    </programList>
+  </sdnEntry>
+</sdnList>
