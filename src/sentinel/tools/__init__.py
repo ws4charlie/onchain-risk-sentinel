@@ -1,4 +1,4 @@
-"""Concrete data adapters for the ports in `sentinel.core.ports`, plus LangChain tool wrappers."""
+"""Concrete data adapters for the ports in `sentinel.core.ports`."""
 
 from sentinel.tools.etherscan import EtherscanChainData, EtherscanError
 from sentinel.tools.sanctions import OfacSanctions

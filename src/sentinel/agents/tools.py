@@ -8,8 +8,9 @@ model cannot invent evidence it did not retrieve.
 
 from __future__ import annotations
 
+import functools
 import json
-from collections.abc import Sequence
+from collections.abc import Awaitable, Callable, Sequence
 
 from langchain_core.tools import BaseTool, tool
 
@@ -29,10 +30,26 @@ def _bad_address(address: str) -> ToolResult:
     return f"Error: {address!r} is not a valid EVM address.", []
 
 
+def _source_errors[**P](
+    fn: Callable[P, Awaitable[ToolResult]],
+) -> Callable[P, Awaitable[ToolResult]]:
+    """Turn a failing data source into an error the model reads, with no evidence."""
+
+    @functools.wraps(fn)
+    async def wrapper(*args: P.args, **kwargs: P.kwargs) -> ToolResult:
+        try:
+            return await fn(*args, **kwargs)
+        except Exception as exc:
+            return f"Error: data source failed ({type(exc).__name__}: {exc}).", []
+
+    return wrapper
+
+
 def build_tools(ports: Ports) -> dict[SpecialistName, list[BaseTool]]:
     """Return each specialist's own tools. No specialist sees another's tools."""
 
     @tool(response_format="content_and_artifact")
+    @_source_errors
     async def get_address_profile(address: str) -> ToolResult:
         """Get age, activity, balance, contract status and labels of an Ethereum address."""
         try:
@@ -58,6 +75,7 @@ def build_tools(ports: Ports) -> dict[SpecialistName, list[BaseTool]]:
         )
 
     @tool(response_format="content_and_artifact")
+    @_source_errors
     async def get_recent_transfers(address: str, limit: int = 20) -> ToolResult:
         """Get the most recent transfers in or out of an Ethereum address, newest first."""
         try:
@@ -82,6 +100,7 @@ def build_tools(ports: Ports) -> dict[SpecialistName, list[BaseTool]]:
         )
 
     @tool(response_format="content_and_artifact")
+    @_source_errors
     async def check_sanctions(address: str) -> ToolResult:
         """Check whether an address is on a sanctions list."""
         try:
@@ -108,6 +127,7 @@ def build_tools(ports: Ports) -> dict[SpecialistName, list[BaseTool]]:
         return _result([evidence])
 
     @tool(response_format="content_and_artifact")
+    @_source_errors
     async def lookup_scam_reports(address: str) -> ToolResult:
         """Look up public scam, phishing and drainer reports for an address."""
         try:
@@ -140,6 +160,7 @@ def build_tools(ports: Ports) -> dict[SpecialistName, list[BaseTool]]:
         )
 
     @tool(response_format="content_and_artifact")
+    @_source_errors
     async def search_patterns(query: str) -> ToolResult:
         """Search the fraud-pattern knowledge base with a description of observed behavior."""
         docs = await ports.patterns.search(query, k=3)

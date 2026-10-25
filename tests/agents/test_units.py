@@ -113,6 +113,21 @@ async def test_tools_report_invalid_address_without_evidence() -> None:
     assert "not a valid EVM address" in message.content
 
 
+async def test_tools_report_source_failure_without_evidence() -> None:
+    class BrokenSanctions:
+        async def check(self, address: str) -> None:
+            raise TimeoutError("list unavailable")
+
+    ports = fake_ports()
+    ports.sanctions = BrokenSanctions()
+    check = build_tools(ports)["sanctions"][0]
+    message = await check.ainvoke(
+        {"type": "tool_call", "name": check.name, "id": "1", "args": {"address": CLEAN}}
+    )
+    assert message.artifact == []
+    assert "data source failed (TimeoutError: list unavailable)" in message.content
+
+
 async def test_specialist_loop_limit_yields_zero_confidence_finding() -> None:
     def never_answers(messages: list[BaseMessage], tools: list[str]) -> AIMessage:
         return tool_call("check_sanctions", {"address": CLEAN})
