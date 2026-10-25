@@ -4,7 +4,10 @@ The LLM proposes; deterministic guards dispose:
 - after `settings.max_steps` decisions the case goes to scoring without an LLM call;
 - a specialist that already ran is never called again, unless the critic asked
   for it in the current revision round and it has not re-run yet;
-- if the guards leave nothing to call, the case goes to scoring.
+- if the guards leave nothing to call, the case goes to scoring;
+- mandatory screening: whenever the case would go to scoring (LLM choice or a
+  guard), any of `MANDATORY` that has not run yet runs first. Compliance checks
+  never depend on a model's choice, and they run even after `max_steps`.
 Several specialists in one decision run in parallel (one LangGraph superstep).
 """
 
@@ -21,6 +24,7 @@ from sentinel.agents.structured import ask_structured
 from sentinel.core.config import Settings
 
 SCORE_NODE = "risk_scorer"
+MANDATORY: tuple[SpecialistName, ...] = ("sanctions", "scam_intel")
 
 
 class RoutingDecision(BaseModel):
@@ -68,15 +72,30 @@ def _route(
     return Command(goto=goto, update=update)
 
 
+def missing_mandatory(state: TriageState) -> list[SpecialistName]:
+    """Mandatory specialists that have not run yet in this case."""
+    ran = {name for record in state.get("routing_history", []) for name in record.targets}
+    return [name for name in MANDATORY if name not in ran]
+
+
+def _to_scoring(state: TriageState, reason: str, *, forced: bool, llm_called: bool) -> Command[str]:
+    """Go to scoring, unless mandatory screening is still missing; then run that first."""
+    missing = missing_mandatory(state)
+    if missing:
+        reason = f"{reason}; mandatory screening first: {', '.join(missing)}"
+        return _route(state, missing, reason, forced=True, llm_called=llm_called)
+    return _route(state, [], reason, forced=forced, llm_called=llm_called)
+
+
 def make_supervisor(model: BaseChatModel, settings: Settings) -> Node[Command[str]]:
     async def supervisor(state: TriageState) -> Command[str]:
         if state.get("step_count", 0) >= settings.max_steps:
-            return _route(
-                state, [], f"max_steps={settings.max_steps} reached", forced=True, llm_called=False
+            return _to_scoring(
+                state, f"max_steps={settings.max_steps} reached", forced=True, llm_called=False
             )
         available = available_specialists(state)
         if not available:
-            return _route(state, [], "no specialist left to call", forced=True, llm_called=False)
+            return _to_scoring(state, "no specialist left to call", forced=True, llm_called=False)
 
         decision = await ask_structured(
             model,
@@ -98,6 +117,8 @@ def make_supervisor(model: BaseChatModel, settings: Settings) -> Node[Command[st
         reason = decision.reason
         if dropped:
             reason += f" (guard dropped repeat calls: {', '.join(dropped)})"
-        return _route(state, targets, reason, forced=bool(dropped) and not targets, llm_called=True)
+        if not targets:
+            return _to_scoring(state, reason, forced=bool(dropped), llm_called=True)
+        return _route(state, targets, reason, forced=False, llm_called=True)
 
     return supervisor

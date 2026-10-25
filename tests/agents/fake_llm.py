@@ -103,8 +103,8 @@ def specialist_policy(assessment: type[BaseModel]) -> Policy:
         kinds = [e["kind"] for m in results for e in json.loads(str(m.content))]
         if "sanctions_hit" in kinds:
             signal, rationale = "critical", "The address is on a sanctions list."
-        elif "scam_report" in kinds:
-            signal, rationale = "high", "The address has a public scam report."
+        elif "scam_report" in kinds or "lookalike_match" in kinds:
+            signal, rationale = "high", f"Adverse evidence: {', '.join(kinds)}."
         else:
             signal, rationale = "none", f"Tool results show no risk: {', '.join(kinds)}."
         return answer(assessment, risk_signal=signal, confidence=0.9, rationale=rationale)

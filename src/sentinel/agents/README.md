@@ -31,7 +31,7 @@ graph TD
 | `state.py` | `TriageState` (TypedDict) with reducers for parallel writes; `RouteRecord`, `CriticRequest` |
 | `supervisor.py` | structured `RoutingDecision` from the LLM, then deterministic guards |
 | `specialists.py` | one ReAct agent per specialist (`langchain.agents.create_agent`), structured `SpecialistAssessment` |
-| `tools.py` | per-specialist tools over the ports; evidence travels as tool artifacts |
+| `tools.py` | per-specialist tools over the ports and the case context; evidence travels as tool artifacts |
 | `risk_scorer.py` | hard rules (table in the module docstring) + LLM summary -> draft `Verdict` |
 | `critic.py` | deterministic evidence check + LLM claim check; bounded send-back |
 | `review.py` | `interrupt()` with a compact payload; applies the `ReviewDecision` |
@@ -55,6 +55,36 @@ saw. Tools return `(content, artifact)`; the `Finding.evidence` list is built fr
 the artifacts, never from model text, so a specialist cannot cite evidence it did
 not retrieve. Each specialist sees only its own tools, which keeps prompts small and
 makes tool choice errors local.
+
+**Mandatory screening.** `sanctions` and `scam_intel` (`supervisor.MANDATORY`) always
+run before `risk_scorer`. Whenever the case would go to scoring (the LLM says so, or a
+guard trips, including `max_steps`), the supervisor first routes to any of them that has
+not run, without an LLM call. Compliance checks never depend on a model's choice.
+
+**Look-alike check (address poisoning).** `chain_tracer` has a deterministic tool,
+`compare_with_known_addresses`, that compares the destination with the addresses in the
+case's `account_context` (`recent_withdrawal_addresses`, `address_book`). Same first 4 and
+last 4 hex characters but a different address gives `lookalike_match` evidence (with the
+actual common prefix/suffix lengths); otherwise `lookalike_clear`. The tool reads the case
+from the agent's runtime context (`SpecialistContext`), so the model only passes the
+address and cannot change the comparison set.
+
+**Hard rules** (`risk_scorer.py`, first match wins):
+
+| Rule | Evidence | Level | Score | Action |
+|---|---|---|---|---|
+| sanctions_hit | `sanctions_hit` | critical | 100 | block |
+| scam_report | `scam_report`, category drainer / phishing / address_poisoning | high | 90 | block |
+| lookalike | `lookalike_match` | high | 85 | block |
+| no_findings | no findings at all | medium | 50 | hold_for_review |
+| — | anything else | LLM | LLM | LLM |
+
+**Time.** The case text includes `Requested at` (UTC); prompts tell models to judge
+recency relative to it, so results do not depend on a model's idea of today.
+
+**Checkpoint-safe evidence.** msgpack cannot store integers outside the signed 64-bit
+range (wei balances often are), so tools store those as decimal strings in
+`Evidence.data`.
 
 **Loop guards.** Every loop has a hard bound that does not depend on the model:
 

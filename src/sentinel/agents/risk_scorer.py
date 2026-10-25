@@ -9,6 +9,8 @@ summary, and decides level, score and action only when no rule applies.
 | sanctions_hit | any evidence of kind `sanctions_hit`           | critical | 100   | block   |
 | scam_report   | any `scam_report` evidence whose category is   | high     | 90    | block   |
 |               | drainer, phishing or address_poisoning         |          |       |         |
+| lookalike     | any `lookalike_match` evidence (destination    | high     | 85    | block   |
+|               | mimics an address the account used before)    |          |       |         |
 | no_findings   | no specialist produced a finding               | medium   | 50    | hold    |
 | (none)        | anything else                                  | LLM      | LLM   | LLM     |
 
@@ -72,6 +74,10 @@ def apply_rules(findings: Mapping[str, Finding]) -> RuleOutcome | None:
     ):
         return RuleOutcome(
             rule="scam_report", risk_level=RiskLevel.HIGH, score=90, action=Action.BLOCK
+        )
+    if any(e.kind == "lookalike_match" for e in evidence):
+        return RuleOutcome(
+            rule="lookalike", risk_level=RiskLevel.HIGH, score=85, action=Action.BLOCK
         )
     if not findings:
         return RuleOutcome(
