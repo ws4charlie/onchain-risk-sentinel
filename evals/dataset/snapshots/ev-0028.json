@@ -1,0 +1,122 @@
+{
+ "case_id": "ev-0028",
+ "origin": "synthetic",
+ "recorded_at": "2026-10-20T12:00:00Z",
+ "sources": {
+  "chain_data": "synthetic",
+  "sanctions": "synthetic",
+  "scam_intel": "synthetic"
+ },
+ "profiles": {
+  "0x87d6b5c4330cb85d99f1d81fc3b0557eb7ae4a37": {
+   "chain": "ethereum",
+   "address": "0x87d6b5c4330cb85d99f1d81fc3b0557eb7ae4a37",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 117,
+   "first_seen": "2026-03-09T22:24:35.552362Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x77a600950787cd3c1fe0e7375763408c7a41280d": {
+   "chain": "ethereum",
+   "address": "0x77a600950787cd3c1fe0e7375763408c7a41280d",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 828,
+   "first_seen": "2026-03-18T20:07:28.520968Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x4cfd1cb0eb6e2b895c90ae9a98d719449c198c83": {
+   "chain": "ethereum",
+   "address": "0x4cfd1cb0eb6e2b895c90ae9a98d719449c198c83",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 2925,
+   "first_seen": "2024-06-07T07:02:34.289462Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0xaeccc5cdfedfb5d5d9a6e641f15460a0345dcce9": {
+   "chain": "ethereum",
+   "address": "0xaeccc5cdfedfb5d5d9a6e641f15460a0345dcce9",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 2556,
+   "first_seen": "2022-11-26T12:22:59.462351Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x176a9695e7f7701db5cf70f2b4441438d4e67718": {
+   "chain": "ethereum",
+   "address": "0x176a9695e7f7701db5cf70f2b4441438d4e67718",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 2079,
+   "first_seen": "2021-02-23T17:56:25.936285Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  }
+ },
+ "transfers": {
+  "0x87d6b5c4330cb85d99f1d81fc3b0557eb7ae4a37": [
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x332a21882659ebdcde9401770062bd53107281e8d5e78bf3cbeb8f367ded7595",
+    "block_number": 23486134,
+    "timestamp": "2026-10-04T16:26:44.854207Z",
+    "from_address": "0xaeccc5cdfedfb5d5d9a6e641f15460a0345dcce9",
+    "to_address": "0x87d6b5c4330cb85d99f1d81fc3b0557eb7ae4a37",
+    "asset": "ETH",
+    "amount": 0.354497
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x63121bd87298c16b866f0931990b07e3205c63f24a61b26da2842f1397e05e60",
+    "block_number": 23458857,
+    "timestamp": "2026-09-30T21:31:19.464657Z",
+    "from_address": "0x77a600950787cd3c1fe0e7375763408c7a41280d",
+    "to_address": "0x87d6b5c4330cb85d99f1d81fc3b0557eb7ae4a37",
+    "asset": "ETH",
+    "amount": 2.014844
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x231ff5d4e592c408279b3588d4f2f67f96756b7f1880b1919506f652924a5e9d",
+    "block_number": 23448065,
+    "timestamp": "2026-09-29T09:32:54.351382Z",
+    "from_address": "0x4cfd1cb0eb6e2b895c90ae9a98d719449c198c83",
+    "to_address": "0x87d6b5c4330cb85d99f1d81fc3b0557eb7ae4a37",
+    "asset": "ETH",
+    "amount": 1.595468
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x4f1279b2123050e039313e2de3f6e1d45b35595f9902056d78ae61d54161ff84",
+    "block_number": 23411802,
+    "timestamp": "2026-09-24T08:40:23.175035Z",
+    "from_address": "0x176a9695e7f7701db5cf70f2b4441438d4e67718",
+    "to_address": "0x87d6b5c4330cb85d99f1d81fc3b0557eb7ae4a37",
+    "asset": "ETH",
+    "amount": 2.800789
+   }
+  ]
+ },
+ "sanctions": {
+  "0x77a600950787cd3c1fe0e7375763408c7a41280d": null,
+  "0x4cfd1cb0eb6e2b895c90ae9a98d719449c198c83": null,
+  "0xaeccc5cdfedfb5d5d9a6e641f15460a0345dcce9": null,
+  "0x176a9695e7f7701db5cf70f2b4441438d4e67718": null,
+  "0x87d6b5c4330cb85d99f1d81fc3b0557eb7ae4a37": null
+ },
+ "scam_reports": {
+  "0x77a600950787cd3c1fe0e7375763408c7a41280d": [],
+  "0x4cfd1cb0eb6e2b895c90ae9a98d719449c198c83": [],
+  "0xaeccc5cdfedfb5d5d9a6e641f15460a0345dcce9": [],
+  "0x176a9695e7f7701db5cf70f2b4441438d4e67718": [],
+  "0x87d6b5c4330cb85d99f1d81fc3b0557eb7ae4a37": [
+   {
+    "address": "0x87d6b5c4330cb85d99f1d81fc3b0557eb7ae4a37",
+    "category": "suspicious_activity",
+    "source": "synthetic-feed",
+    "description": "Community report: suspicious activity."
+   }
+  ]
+ }
+}
