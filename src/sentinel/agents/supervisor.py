@@ -24,7 +24,9 @@ from sentinel.agents.structured import ask_structured
 from sentinel.core.config import Settings
 
 SCORE_NODE = "risk_scorer"
-MANDATORY: tuple[SpecialistName, ...] = ("sanctions", "scam_intel")
+# chain_tracer is mandatory too: every withdrawal needs the destination's history and
+# the look-alike check against the account's own past destinations.
+MANDATORY: tuple[SpecialistName, ...] = ("sanctions", "scam_intel", "chain_tracer")
 
 
 class RoutingDecision(BaseModel):

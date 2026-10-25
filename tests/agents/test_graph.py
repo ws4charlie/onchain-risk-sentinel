@@ -126,9 +126,9 @@ async def test_repeat_call_without_critic_request_is_dropped(
     assert run.verdict is not None
     second = run.state["routing_history"][1]
     # The repeat is dropped; scoring is then preceded by the missing mandatory check.
-    assert second.targets == ["scam_intel"] and second.forced
+    assert second.targets == ["scam_intel", "chain_tracer"] and second.forced
     assert "guard dropped repeat calls: sanctions" in second.reason
-    assert set(run.state["findings"]) == {"sanctions", "scam_intel"}
+    assert set(run.state["findings"]) == {"sanctions", "scam_intel", "chain_tracer"}
 
 
 async def test_mandatory_screening_runs_when_llm_scores_immediately(
@@ -138,9 +138,9 @@ async def test_mandatory_screening_runs_when_llm_scores_immediately(
     run = await run_case(graph_factory(make_models(routes=routes)), _case(CLEAN))
 
     assert run.verdict is not None
-    assert set(run.state["findings"]) == {"sanctions", "scam_intel"}
+    assert set(run.state["findings"]) == {"sanctions", "scam_intel", "chain_tracer"}
     first = run.state["routing_history"][0]
-    assert first.forced and first.targets == ["sanctions", "scam_intel"]
+    assert first.forced and first.targets == ["sanctions", "scam_intel", "chain_tracer"]
     assert "mandatory screening first" in first.reason
 
 
@@ -209,7 +209,7 @@ async def test_max_steps_guard_still_produces_a_verdict(graph_factory: GraphFact
 
     assert run.verdict is not None
     assert run.state["step_count"] == 2
-    assert set(run.state["findings"]) == {"sanctions", "scam_intel"}
+    assert set(run.state["findings"]) == {"sanctions", "scam_intel", "chain_tracer"}
     last = run.state["routing_history"][-1]
     assert last.forced and "max_steps=2" in last.reason
 

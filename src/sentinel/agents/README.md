@@ -56,8 +56,9 @@ the artifacts, never from model text, so a specialist cannot cite evidence it di
 not retrieve. Each specialist sees only its own tools, which keeps prompts small and
 makes tool choice errors local.
 
-**Mandatory screening.** `sanctions` and `scam_intel` (`supervisor.MANDATORY`) always
-run before `risk_scorer`. Whenever the case would go to scoring (the LLM says so, or a
+**Mandatory screening.** `sanctions`, `scam_intel` and `chain_tracer`
+(`supervisor.MANDATORY`) always run before `risk_scorer`; `chain_tracer` is included
+because the destination's history and the look-alike check matter for every withdrawal. Whenever the case would go to scoring (the LLM says so, or a
 guard trips, including `max_steps`), the supervisor first routes to any of them that has
 not run, without an LLM call. Compliance checks never depend on a model's choice.
 
