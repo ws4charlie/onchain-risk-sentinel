@@ -22,6 +22,7 @@ from pydantic import BaseModel, Field
 
 from sentinel.agents import prompts
 from sentinel.agents.state import Node, SpecialistName, TriageState
+from sentinel.agents.tools import SpecialistContext
 from sentinel.core.schemas import Evidence, Finding, RiskLevel
 
 # Bounds one specialist's ReAct loop (model and tool steps), independent of the
@@ -62,6 +63,7 @@ def make_specialist(
         list(tools),
         system_prompt=prompts.SPECIALISTS[name],
         response_format=ToolStrategy(SpecialistAssessment),
+        context_schema=SpecialistContext,
         name=name,
     )
 
@@ -74,6 +76,7 @@ def make_specialist(
             result = await agent.ainvoke(
                 {"messages": [HumanMessage(task)]},
                 config={"recursion_limit": SPECIALIST_RECURSION_LIMIT},
+                context=SpecialistContext(case=state["case"]),
             )
         except GraphRecursionError:
             finding = Finding(

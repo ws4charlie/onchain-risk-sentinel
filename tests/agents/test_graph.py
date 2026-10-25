@@ -6,9 +6,16 @@ import pytest
 
 from sentinel.agents import build_graph, resume_case, run_case
 from sentinel.core.config import Settings
-from sentinel.core.schemas import Action, Case, ReviewDecision, RiskLevel
+from sentinel.core.schemas import (
+    Action,
+    AddressProfile,
+    Case,
+    Chain,
+    ReviewDecision,
+    RiskLevel,
+)
 from tests.agents.conftest import GraphFactory, make_models
-from tests.fakes import CLEAN, DRAINER, SANCTIONED, fake_ports
+from tests.fakes import CLEAN, DRAINER, POISONING_LOOKALIKE, SANCTIONED, FakeChainData, fake_ports
 
 
 def _case(address: str, case_id: str = "case-1") -> Case:
@@ -107,7 +114,7 @@ async def test_critic_send_backs_are_capped_by_max_revisions(
     assert run.state["critic_issues"] == ["Unsupported."]
 
 
-async def test_repeat_call_without_critic_request_goes_to_scoring(
+async def test_repeat_call_without_critic_request_is_dropped(
     graph_factory: GraphFactory,
 ) -> None:
     routes = [
@@ -117,9 +124,76 @@ async def test_repeat_call_without_critic_request_goes_to_scoring(
     run = await run_case(graph_factory(make_models(routes=routes)), _case(CLEAN))
 
     assert run.verdict is not None
-    last = run.state["routing_history"][-1]
-    assert last.targets == [] and last.forced
-    assert set(run.state["findings"]) == {"sanctions"}
+    second = run.state["routing_history"][1]
+    # The repeat is dropped; scoring is then preceded by the missing mandatory check.
+    assert second.targets == ["scam_intel"] and second.forced
+    assert "guard dropped repeat calls: sanctions" in second.reason
+    assert set(run.state["findings"]) == {"sanctions", "scam_intel"}
+
+
+async def test_mandatory_screening_runs_when_llm_scores_immediately(
+    graph_factory: GraphFactory,
+) -> None:
+    routes = [{"specialists": [], "reason": "looks fine"}]
+    run = await run_case(graph_factory(make_models(routes=routes)), _case(CLEAN))
+
+    assert run.verdict is not None
+    assert set(run.state["findings"]) == {"sanctions", "scam_intel"}
+    first = run.state["routing_history"][0]
+    assert first.forced and first.targets == ["sanctions", "scam_intel"]
+    assert "mandatory screening first" in first.reason
+
+
+async def test_mandatory_screening_runs_when_step_guard_trips(
+    graph_factory: GraphFactory,
+) -> None:
+    routes = [{"specialists": ["chain_tracer"], "reason": "trace first"}]
+    run = await run_case(graph_factory(make_models(routes=routes), max_steps=1), _case(SANCTIONED))
+
+    assert set(run.state["findings"]) == {"chain_tracer", "sanctions", "scam_intel"}
+    assert run.state["step_count"] == 1
+    guard = run.state["routing_history"][1]
+    assert guard.forced and "max_steps=1" in guard.reason
+    assert guard.targets == ["sanctions", "scam_intel"]
+    # The skipped-by-the-model sanctions check still decides the case.
+    assert run.review_request is not None
+    assert run.review_request["proposed_action"] == "block"
+
+
+async def test_lookalike_destination_is_blocked_by_rule(graph_factory: GraphFactory) -> None:
+    case = Case(
+        case_id="case-poison",
+        address=POISONING_LOOKALIKE,
+        amount=3.0,
+        account_context={"recent_withdrawal_addresses": [CLEAN]},
+    )
+    run = await run_case(graph_factory(), case)
+
+    assert run.review_request is not None
+    assert run.review_request["proposed_action"] == "block"
+    assert run.review_request["risk_level"] == "high"
+    assert run.review_request["score"] == 85
+    tracer = run.state["findings"]["chain_tracer"]
+    [match] = [e for e in tracer.evidence if e.kind == "lookalike_match"]
+    assert match.data["known_address"] == CLEAN
+
+
+async def test_huge_balance_survives_checkpointing(settings: Settings, saver) -> None:  # type: ignore[no-untyped-def]
+    class RichChainData(FakeChainData):
+        async def get_address_profile(self, chain: Chain, address: str) -> AddressProfile:
+            profile = await super().get_address_profile(chain, address)
+            return profile.model_copy(update={"balance_wei": 3 * 10**19})
+
+    ports = fake_ports()
+    ports.chain_data = RichChainData()
+    graph = build_graph(ports, make_models(), settings, saver)
+    run = await run_case(graph, _case(CLEAN))
+
+    assert run.verdict is not None
+    [profile] = [
+        e for e in run.state["findings"]["chain_tracer"].evidence if e.kind == "address_profile"
+    ]
+    assert profile.data["balance_wei"] == str(3 * 10**19)
 
 
 async def test_max_steps_guard_still_produces_a_verdict(graph_factory: GraphFactory) -> None:

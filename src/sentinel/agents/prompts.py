@@ -7,6 +7,7 @@ compared in evals without touching graph code.
 from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
+from datetime import UTC
 
 from sentinel.agents.state import CriticRequest, SpecialistName
 from sentinel.core.schemas import Case, Finding, Verdict
@@ -14,10 +15,12 @@ from sentinel.core.schemas import Case, Finding, Verdict
 SUPERVISOR = """\
 You coordinate the triage of a crypto withdrawal. Pick which specialists to call next.
 Specialists:
-- chain_tracer: address profile and recent transfers (age, activity, contract, zero-value spam).
+- chain_tracer: address profile, recent transfers (age, activity, contract, zero-value spam)
+  and a look-alike check against addresses the account used before (address poisoning).
 - sanctions: sanctions list screening.
 - scam_intel: public scam and phishing reports.
 - pattern_analyst: matches known fraud patterns; most useful after chain_tracer has reported.
+sanctions and scam_intel always run before scoring, even if you do not choose them.
 Call independent specialists together. Only choose from the specialists listed as available.
 Return an empty list when the findings are enough to score the case.
 Always give a one-sentence reason."""
@@ -25,11 +28,13 @@ Always give a one-sentence reason."""
 _SPECIALIST_RULES = """
 Use your tools; do not guess facts. Base the assessment only on tool results.
 risk_signal: none, low, medium, high or critical. confidence: 0 to 1.
-The rationale must only state facts that appear in the tool results."""
+The rationale must only state facts that appear in the tool results.
+Judge recency (age, last activity) relative to the case's "Requested at" time, not today."""
 
 SPECIALISTS: dict[SpecialistName, str] = {
     "chain_tracer": "You analyze on-chain activity of an Ethereum address: age, activity, "
-    "contract status, and recent transfers (including zero-value transfers)." + _SPECIALIST_RULES,
+    "contract status, recent transfers (including zero-value transfers), and whether it "
+    "imitates an address the account used before." + _SPECIALIST_RULES,
     "sanctions": "You screen addresses against sanctions lists. A direct hit is critical."
     + _SPECIALIST_RULES,
     "scam_intel": "You look up public scam, phishing and drainer reports for an address."
@@ -43,7 +48,8 @@ You write the draft verdict for a withdrawal triage from specialist findings.
 If a hard rule already fixed the risk level, score and action, keep them exactly and
 write a summary that explains them. Otherwise choose them yourself:
 score 0-100, risk_level none/low/medium/high/critical, action allow/hold_for_review/block.
-The summary must cite only facts present in the findings."""
+The summary must cite only facts present in the findings.
+Judge recency relative to the case's "Requested at" time, not today."""
 
 CRITIC = """\
 You review a draft verdict. Check every claim in the summary and in each finding's
@@ -58,6 +64,7 @@ def render_case(case: Case) -> str:
         f"Chain: {case.chain.value}",
         f"Destination address: {case.address}",
         f"Asset: {case.asset}",
+        f"Requested at: {case.requested_at.astimezone(UTC).isoformat()}",
     ]
     if case.amount is not None:
         lines.append(f"Amount: {case.amount}")

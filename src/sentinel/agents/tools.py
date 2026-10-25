@@ -4,26 +4,64 @@ Each tool returns `(content, artifact)`: the content is what the model reads,
 the artifact is the list of `Evidence` objects built from the same port data.
 Specialists collect evidence from artifacts, never from model text, so a
 model cannot invent evidence it did not retrieve.
+
+Tools that need the case itself (not just an address the model passes) read it
+from the agent's runtime context (`SpecialistContext`), which the specialist
+node sets per run. The model cannot change it.
+
+Evidence data must survive checkpointing: msgpack cannot hold integers outside
+the signed 64-bit range (e.g. balances in wei), so `_json_safe` stores those as
+decimal strings.
 """
 
 from __future__ import annotations
 
 import functools
 import json
-from collections.abc import Awaitable, Callable, Sequence
+from collections.abc import Awaitable, Callable, Iterator, Sequence
+from dataclasses import dataclass
+from typing import Any
 
+from langchain.tools import ToolRuntime
 from langchain_core.tools import BaseTool, tool
 
 from sentinel.agents.state import SpecialistName
 from sentinel.core.ports import Ports
-from sentinel.core.schemas import Chain, Evidence, normalize_address
+from sentinel.core.schemas import Case, Chain, Evidence, normalize_address
 
 ToolResult = tuple[str, list[Evidence]]
 
+_INT64_MIN, _INT64_MAX = -(2**63), 2**63 - 1
+
+# Look-alike rule: same first and last LOOKALIKE_CHARS hex characters, different address.
+LOOKALIKE_CHARS = 4
+KNOWN_ADDRESS_KEYS = ("recent_withdrawal_addresses", "address_book")
+
+
+@dataclass(frozen=True)
+class SpecialistContext:
+    """Per-run context injected into specialist tools; not visible to the model."""
+
+    case: Case
+
+
+def _json_safe(value: Any) -> Any:
+    """Return `value` with every int outside the signed 64-bit range as a decimal string."""
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, int):
+        return value if _INT64_MIN <= value <= _INT64_MAX else str(value)
+    if isinstance(value, dict):
+        return {k: _json_safe(v) for k, v in value.items()}
+    if isinstance(value, list | tuple):
+        return [_json_safe(v) for v in value]
+    return value
+
 
 def _result(evidence: Sequence[Evidence]) -> ToolResult:
-    content = json.dumps([e.model_dump(mode="json", exclude={"observed_at"}) for e in evidence])
-    return content, list(evidence)
+    safe = [e.model_copy(update={"data": _json_safe(e.data)}) for e in evidence]
+    content = json.dumps([e.model_dump(mode="json", exclude={"observed_at"}) for e in safe])
+    return content, safe
 
 
 def _bad_address(address: str) -> ToolResult:
@@ -43,6 +81,74 @@ def _source_errors[**P](
             return f"Error: data source failed ({type(exc).__name__}: {exc}).", []
 
     return wrapper
+
+
+def _known_addresses(context: dict[str, Any]) -> Iterator[tuple[str, str]]:
+    """Yield (address, source key) for every valid address the account used or saved."""
+    for key in KNOWN_ADDRESS_KEYS:
+        entries = context.get(key)
+        if not isinstance(entries, list):
+            continue
+        for entry in entries:
+            raw = entry.get("address") if isinstance(entry, dict) else entry
+            if not isinstance(raw, str):
+                continue
+            try:
+                yield normalize_address(raw), key
+            except ValueError:
+                continue
+
+
+def _common_prefix(a: str, b: str) -> int:
+    n = 0
+    while n < min(len(a), len(b)) and a[n] == b[n]:
+        n += 1
+    return n
+
+
+def find_lookalikes(address: str, context: dict[str, Any]) -> list[Evidence]:
+    """Compare `address` with the account's known addresses (address-poisoning check)."""
+    target = address[2:]
+    matches: list[Evidence] = []
+    known = list(dict.fromkeys(_known_addresses(context)))
+    for other, source in known:
+        hex_other = other[2:]
+        same_ends = (
+            target[:LOOKALIKE_CHARS] == hex_other[:LOOKALIKE_CHARS]
+            and target[-LOOKALIKE_CHARS:] == hex_other[-LOOKALIKE_CHARS:]
+        )
+        if other == address or not same_ends:
+            continue
+        prefix = _common_prefix(target, hex_other)
+        suffix = _common_prefix(target[::-1], hex_other[::-1])
+        matches.append(
+            Evidence(
+                source="account_context",
+                kind="lookalike_match",
+                summary=f"{address} mimics known address {other} from {source}: same first "
+                f"{prefix} and last {suffix} hex characters, but a different address",
+                data={
+                    "address": address,
+                    "known_address": other,
+                    "known_source": source,
+                    "rule_chars": LOOKALIKE_CHARS,
+                    "common_prefix_len": prefix,
+                    "common_suffix_len": suffix,
+                },
+            )
+        )
+    if matches:
+        return matches
+    exact = any(other == address for other, _ in known)
+    return [
+        Evidence(
+            source="account_context",
+            kind="lookalike_clear",
+            summary=f"{address} does not mimic any of {len(known)} known account addresses"
+            + (" (it is one of them)" if exact else ""),
+            data={"address": address, "known_count": len(known), "exact_known_match": exact},
+        )
+    ]
 
 
 def build_tools(ports: Ports) -> dict[SpecialistName, list[BaseTool]]:
@@ -176,8 +282,19 @@ def build_tools(ports: Ports) -> dict[SpecialistName, list[BaseTool]]:
             ]
         )
 
+    @tool(response_format="content_and_artifact")
+    async def compare_with_known_addresses(
+        address: str, runtime: ToolRuntime[SpecialistContext]
+    ) -> ToolResult:
+        """Check whether an address imitates (address poisoning) one the account used before."""
+        try:
+            address = normalize_address(address)
+        except ValueError:
+            return _bad_address(address)
+        return _result(find_lookalikes(address, runtime.context.case.account_context))
+
     return {
-        "chain_tracer": [get_address_profile, get_recent_transfers],
+        "chain_tracer": [get_address_profile, get_recent_transfers, compare_with_known_addresses],
         "sanctions": [check_sanctions],
         "scam_intel": [lookup_scam_reports],
         "pattern_analyst": [search_patterns],
