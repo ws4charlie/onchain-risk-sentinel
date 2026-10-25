@@ -1,0 +1,3 @@
+banned_address,wallet_tag,data_source
+0x8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f,Fake_Phishing0002,etherscan-phish-hack-list
+0x2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b,Heist_0001,etherscan-heist-list

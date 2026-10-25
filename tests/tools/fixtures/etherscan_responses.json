@@ -1,0 +1,109 @@
+{
+  "_comment": "Etherscan API V2 response bodies in the documented shape (https://docs.etherscan.io/). Addresses and hashes are synthetic.",
+  "balance": {"status": "1", "message": "OK", "result": "1500000000000000000"},
+  "code_eoa": {"jsonrpc": "2.0", "id": 1, "result": "0x"},
+  "code_contract": {"jsonrpc": "2.0", "id": 1, "result": "0x6080604052348015600f57600080fd5b50"},
+  "nonce": {"jsonrpc": "2.0", "id": 1, "result": "0x1a"},
+  "nonce_zero": {"jsonrpc": "2.0", "id": 1, "result": "0x0"},
+  "txlist_desc": {
+    "status": "1",
+    "message": "OK",
+    "result": [
+      {
+        "blockNumber": "21000050", "timeStamp": "1759300000",
+        "hash": "0x00000000000000000000000000000000000000000000000000000000000000b2",
+        "nonce": "25", "blockHash": "0x00000000000000000000000000000000000000000000000000000000000000f2",
+        "transactionIndex": "3",
+        "from": "0xABABABABABABABABABABABABABABABABABABABAB",
+        "to": "0xc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0",
+        "value": "250000000000000000", "gas": "21000", "gasPrice": "1000000000",
+        "isError": "0", "txreceipt_status": "1", "input": "0x", "contractAddress": "",
+        "cumulativeGasUsed": "63000", "gasUsed": "21000", "confirmations": "100",
+        "methodId": "0x", "functionName": ""
+      },
+      {
+        "blockNumber": "21000040", "timeStamp": "1759290000",
+        "hash": "0x00000000000000000000000000000000000000000000000000000000000000b1",
+        "nonce": "24", "blockHash": "0x00000000000000000000000000000000000000000000000000000000000000f1",
+        "transactionIndex": "1",
+        "from": "0xababababababababababababababababababababab",
+        "to": "0xd4a1d4a1d4a1d4a1d4a1d4a1d4a1d4a1d4a1d4a1",
+        "value": "0", "gas": "60000", "gasPrice": "1000000000",
+        "isError": "1", "txreceipt_status": "0", "input": "0xa9059cbb", "contractAddress": "",
+        "cumulativeGasUsed": "90000", "gasUsed": "45000", "confirmations": "110",
+        "methodId": "0xa9059cbb", "functionName": "transfer(address _to, uint256 _value)"
+      }
+    ]
+  },
+  "txlist_asc_first": {
+    "status": "1",
+    "message": "OK",
+    "result": [
+      {
+        "blockNumber": "15000000", "timeStamp": "1656633600",
+        "hash": "0x00000000000000000000000000000000000000000000000000000000000000a0",
+        "nonce": "0", "blockHash": "0x00000000000000000000000000000000000000000000000000000000000000e0",
+        "transactionIndex": "0",
+        "from": "0xc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0",
+        "to": "0xababababababababababababababababababababab",
+        "value": "2000000000000000000", "gas": "21000", "gasPrice": "20000000000",
+        "isError": "0", "txreceipt_status": "1", "input": "0x", "contractAddress": "",
+        "cumulativeGasUsed": "21000", "gasUsed": "21000", "confirmations": "6000000",
+        "methodId": "0x", "functionName": ""
+      }
+    ]
+  },
+  "tokentx_desc": {
+    "status": "1",
+    "message": "OK",
+    "result": [
+      {
+        "blockNumber": "21000060", "timeStamp": "1759310000",
+        "hash": "0x00000000000000000000000000000000000000000000000000000000000000c1",
+        "nonce": "7", "blockHash": "0x00000000000000000000000000000000000000000000000000000000000000f3",
+        "from": "0x1111999999999999999999999999999999991a2b",
+        "contractAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "to": "0xababababababababababababababababababababab",
+        "value": "0", "tokenName": "Tether USD", "tokenSymbol": "USDT", "tokenDecimal": "6",
+        "transactionIndex": "9", "gas": "80000", "gasPrice": "1000000000", "gasUsed": "50000",
+        "cumulativeGasUsed": "400000", "input": "deprecated", "confirmations": "90"
+      },
+      {
+        "blockNumber": "21000030", "timeStamp": "1759280000",
+        "hash": "0x00000000000000000000000000000000000000000000000000000000000000c0",
+        "nonce": "3", "blockHash": "0x00000000000000000000000000000000000000000000000000000000000000f0",
+        "from": "0xc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0",
+        "contractAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "to": "0xababababababababababababababababababababab",
+        "value": "1250500000", "tokenName": "Tether USD", "tokenSymbol": "USDT", "tokenDecimal": "6",
+        "transactionIndex": "2", "gas": "80000", "gasPrice": "1000000000", "gasUsed": "50000",
+        "cumulativeGasUsed": "100000", "input": "deprecated", "confirmations": "120"
+      }
+    ]
+  },
+  "tokentx_asc_first": {
+    "status": "1",
+    "message": "OK",
+    "result": [
+      {
+        "blockNumber": "16000000", "timeStamp": "1668000000",
+        "hash": "0x00000000000000000000000000000000000000000000000000000000000000c9",
+        "nonce": "1", "blockHash": "0x00000000000000000000000000000000000000000000000000000000000000f9",
+        "from": "0xc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0",
+        "contractAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "to": "0xababababababababababababababababababababab",
+        "value": "1000000", "tokenName": "Tether USD", "tokenSymbol": "USDT", "tokenDecimal": "6",
+        "transactionIndex": "2", "gas": "80000", "gasPrice": "1000000000", "gasUsed": "50000",
+        "cumulativeGasUsed": "100000", "input": "deprecated", "confirmations": "5000000"
+      }
+    ]
+  },
+  "empty": {"status": "0", "message": "No transactions found", "result": []},
+  "sourcecode_verified": {
+    "status": "1",
+    "message": "OK",
+    "result": [{"SourceCode": "contract Vault {}", "ABI": "[]", "ContractName": "Vault", "CompilerVersion": "v0.8.24+commit.e11b9ed9"}]
+  },
+  "rate_limited": {"status": "0", "message": "NOTOK", "result": "Max calls per sec rate limit reached (5/sec)"},
+  "invalid_key": {"status": "0", "message": "NOTOK", "result": "Invalid API Key (#err2)|1"}
+}
