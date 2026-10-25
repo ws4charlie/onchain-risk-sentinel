@@ -29,6 +29,7 @@ tracing = [
 
 [project.scripts]
 sentinel = "sentinel.app.cli:main"
+sentinel-eval = "sentinel.evals.cli:main"
 
 [dependency-groups]
 dev = [

@@ -1,0 +1,99 @@
+{
+ "case_id": "ev-0045",
+ "origin": "synthetic",
+ "recorded_at": "2026-10-20T12:00:00Z",
+ "sources": {
+  "chain_data": "synthetic",
+  "sanctions": "synthetic",
+  "scam_intel": "synthetic"
+ },
+ "profiles": {
+  "0xeb151151e94792a9a882f0799739d079af9bd2e8": {
+   "chain": "ethereum",
+   "address": "0xeb151151e94792a9a882f0799739d079af9bd2e8",
+   "is_contract": false,
+   "balance_wei": 1200000000000000000,
+   "tx_count": 305,
+   "first_seen": "2023-10-24T05:51:15.363813Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x05ba5bf50b5504055ccb0452cb6fa4bfbb884bc0": {
+   "chain": "ethereum",
+   "address": "0x05ba5bf50b5504055ccb0452cb6fa4bfbb884bc0",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 829,
+   "first_seen": "2023-08-10T13:07:15.359351Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0xf3599e4065b9453baa0162209dde7809aed39961": {
+   "chain": "ethereum",
+   "address": "0xf3599e4065b9453baa0162209dde7809aed39961",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 2262,
+   "first_seen": "2024-12-04T19:24:42.823836Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x37726c71f15be93e76596f32a33c27b9ccc3a9e4": {
+   "chain": "ethereum",
+   "address": "0x37726c71f15be93e76596f32a33c27b9ccc3a9e4",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 2891,
+   "first_seen": "2023-02-05T06:23:14.020861Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  }
+ },
+ "transfers": {
+  "0xeb151151e94792a9a882f0799739d079af9bd2e8": [
+   {
+    "chain": "ethereum",
+    "tx_hash": "0xf83647a6505a01e64b067416a4c968417e6a4ece0ebbef1089e75b95d036dc09",
+    "block_number": 23464213,
+    "timestamp": "2026-10-01T15:22:30.437708Z",
+    "from_address": "0x37726c71f15be93e76596f32a33c27b9ccc3a9e4",
+    "to_address": "0xeb151151e94792a9a882f0799739d079af9bd2e8",
+    "asset": "ETH",
+    "amount": 21.512943
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x1c78b15df681d578cdc760bb6880b59d2cb8a0b173fd67baad8490ea4ecc0a3b",
+    "block_number": 23420777,
+    "timestamp": "2026-09-25T14:35:17.134180Z",
+    "from_address": "0xf3599e4065b9453baa0162209dde7809aed39961",
+    "to_address": "0xeb151151e94792a9a882f0799739d079af9bd2e8",
+    "asset": "ETH",
+    "amount": 2.190719
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0xabf305b2a9855633ca4aa9c15e1fa9ac202fb3f7bf5890e055d7ec7cba504ad4",
+    "block_number": 23398868,
+    "timestamp": "2026-09-22T13:33:24.122193Z",
+    "from_address": "0x05ba5bf50b5504055ccb0452cb6fa4bfbb884bc0",
+    "to_address": "0xeb151151e94792a9a882f0799739d079af9bd2e8",
+    "asset": "ETH",
+    "amount": 26.78649
+   }
+  ]
+ },
+ "sanctions": {
+  "0x05ba5bf50b5504055ccb0452cb6fa4bfbb884bc0": null,
+  "0xf3599e4065b9453baa0162209dde7809aed39961": null,
+  "0x37726c71f15be93e76596f32a33c27b9ccc3a9e4": null,
+  "0xeb151151e94792a9a882f0799739d079af9bd2e8": {
+   "address": "0xeb151151e94792a9a882f0799739d079af9bd2e8",
+   "list_name": "OFAC SDN",
+   "entity_name": "SYNTHETIC SANCTIONED ENTITY 05",
+   "program": "CYBER2"
+  }
+ },
+ "scam_reports": {
+  "0x05ba5bf50b5504055ccb0452cb6fa4bfbb884bc0": [],
+  "0xf3599e4065b9453baa0162209dde7809aed39961": [],
+  "0x37726c71f15be93e76596f32a33c27b9ccc3a9e4": [],
+  "0xeb151151e94792a9a882f0799739d079af9bd2e8": []
+ }
+}

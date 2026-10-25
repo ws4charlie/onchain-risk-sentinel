@@ -1,0 +1,51 @@
+name: evals
+
+# Runs the smoke subset of the eval dataset with the default model configuration,
+# then the regression gate against evals/baseline.json. Skips cleanly when the
+# provider keys are not configured as repository secrets (e.g. on forks).
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+    steps:
+      - name: Check secrets
+        id: keys
+        run: |
+          if [ -n "$OPENAI_API_KEY" ] && [ -n "$GOOGLE_API_KEY" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::OPENAI_API_KEY or GOOGLE_API_KEY is not set; skipping the smoke eval."
+          fi
+      - uses: actions/checkout@v4
+        if: steps.keys.outputs.ready == 'true'
+      - uses: astral-sh/setup-uv@v6
+        if: steps.keys.outputs.ready == 'true'
+      - run: uv sync --locked
+        if: steps.keys.outputs.ready == 'true'
+      - name: Run smoke subset
+        if: steps.keys.outputs.ready == 'true'
+        run: uv run sentinel-eval run --config default --tag smoke --concurrency 3 --out evals/results/ci
+      - name: Regression gate
+        if: steps.keys.outputs.ready == 'true'
+        run: |
+          result=$(ls -t evals/results/ci/*.json | head -n 1)
+          uv run sentinel-eval gate "$result" --baseline evals/baseline.json --subset smoke
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.keys.outputs.ready == 'true'
+        with:
+          name: eval-results
+          path: evals/results/ci/
+          if-no-files-found: ignore

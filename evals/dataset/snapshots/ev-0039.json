@@ -1,0 +1,122 @@
+{
+ "case_id": "ev-0039",
+ "origin": "synthetic",
+ "recorded_at": "2026-10-20T12:00:00Z",
+ "sources": {
+  "chain_data": "synthetic",
+  "sanctions": "synthetic",
+  "scam_intel": "synthetic"
+ },
+ "profiles": {
+  "0x866cacfd0031bdcec33135001150d7a81744c8d0": {
+   "chain": "ethereum",
+   "address": "0x866cacfd0031bdcec33135001150d7a81744c8d0",
+   "is_contract": true,
+   "balance_wei": 0,
+   "tx_count": 808,
+   "first_seen": "2026-09-18T19:25:55.248645Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0xa7d91b15dcddba62c784250c1e24a941e9e9f96b": {
+   "chain": "ethereum",
+   "address": "0xa7d91b15dcddba62c784250c1e24a941e9e9f96b",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 1503,
+   "first_seen": "2024-01-07T22:58:02.484222Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x8cc56fdb616d033c6292cf8e72b2123ec9cb6352": {
+   "chain": "ethereum",
+   "address": "0x8cc56fdb616d033c6292cf8e72b2123ec9cb6352",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 62,
+   "first_seen": "2024-07-31T06:27:06.116644Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x22a2ad057774948385bcca3d8566f6fc410cee93": {
+   "chain": "ethereum",
+   "address": "0x22a2ad057774948385bcca3d8566f6fc410cee93",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 57,
+   "first_seen": "2022-04-14T21:30:19.859088Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x5bcdd8652fcdc530c303561362a265a65b94ed1c": {
+   "chain": "ethereum",
+   "address": "0x5bcdd8652fcdc530c303561362a265a65b94ed1c",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 2767,
+   "first_seen": "2024-09-15T11:03:23.367984Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  }
+ },
+ "transfers": {
+  "0x866cacfd0031bdcec33135001150d7a81744c8d0": [
+   {
+    "chain": "ethereum",
+    "tx_hash": "0xfe9997275b01a38009cc20f91632f47e444d0d2df39475d60a39393c9b0705ce",
+    "block_number": 23597354,
+    "timestamp": "2026-10-20T03:10:47.832940Z",
+    "from_address": "0x5bcdd8652fcdc530c303561362a265a65b94ed1c",
+    "to_address": "0x866cacfd0031bdcec33135001150d7a81744c8d0",
+    "asset": "ETH",
+    "amount": 2.81072
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0xb40f05f2c690f58d760376fadbc3067d897b57caaa7e4a19ade4e2d46176f379",
+    "block_number": 23585007,
+    "timestamp": "2026-10-18T10:01:18.272419Z",
+    "from_address": "0x8cc56fdb616d033c6292cf8e72b2123ec9cb6352",
+    "to_address": "0x866cacfd0031bdcec33135001150d7a81744c8d0",
+    "asset": "ETH",
+    "amount": 0.314832
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x657e314254bfefdd9c8212a046c13644910e0477b237d1f6b8de60b916ba2763",
+    "block_number": 23425596,
+    "timestamp": "2026-09-26T06:39:08.900973Z",
+    "from_address": "0xa7d91b15dcddba62c784250c1e24a941e9e9f96b",
+    "to_address": "0x866cacfd0031bdcec33135001150d7a81744c8d0",
+    "asset": "ETH",
+    "amount": 0.749181
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x51b05cb2f63ec4255c0975fa67b457ee8c4d116cbb3f1a895031164aaa30b5cc",
+    "block_number": 23424351,
+    "timestamp": "2026-09-26T02:30:00.805112Z",
+    "from_address": "0x22a2ad057774948385bcca3d8566f6fc410cee93",
+    "to_address": "0x866cacfd0031bdcec33135001150d7a81744c8d0",
+    "asset": "ETH",
+    "amount": 0.118073
+   }
+  ]
+ },
+ "sanctions": {
+  "0xa7d91b15dcddba62c784250c1e24a941e9e9f96b": null,
+  "0x8cc56fdb616d033c6292cf8e72b2123ec9cb6352": null,
+  "0x22a2ad057774948385bcca3d8566f6fc410cee93": null,
+  "0x5bcdd8652fcdc530c303561362a265a65b94ed1c": null,
+  "0x866cacfd0031bdcec33135001150d7a81744c8d0": null
+ },
+ "scam_reports": {
+  "0xa7d91b15dcddba62c784250c1e24a941e9e9f96b": [],
+  "0x8cc56fdb616d033c6292cf8e72b2123ec9cb6352": [],
+  "0x22a2ad057774948385bcca3d8566f6fc410cee93": [],
+  "0x5bcdd8652fcdc530c303561362a265a65b94ed1c": [],
+  "0x866cacfd0031bdcec33135001150d7a81744c8d0": [
+   {
+    "address": "0x866cacfd0031bdcec33135001150d7a81744c8d0",
+    "category": "fake_token",
+    "source": "synthetic-feed",
+    "description": "Community report: fake token."
+   }
+  ]
+ }
+}

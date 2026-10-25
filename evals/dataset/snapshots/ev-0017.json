@@ -1,0 +1,122 @@
+{
+ "case_id": "ev-0017",
+ "origin": "synthetic",
+ "recorded_at": "2026-10-20T12:00:00Z",
+ "sources": {
+  "chain_data": "synthetic",
+  "sanctions": "synthetic",
+  "scam_intel": "synthetic"
+ },
+ "profiles": {
+  "0x3e8f9fdb1c53c66b9b2faea877211fcd7d240ef4": {
+   "chain": "ethereum",
+   "address": "0x3e8f9fdb1c53c66b9b2faea877211fcd7d240ef4",
+   "is_contract": true,
+   "balance_wei": 0,
+   "tx_count": 2619,
+   "first_seen": "2025-10-05T23:56:59.190964Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x93f3ee552bc63af4c37187d3571addcfac5b2acd": {
+   "chain": "ethereum",
+   "address": "0x93f3ee552bc63af4c37187d3571addcfac5b2acd",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 1719,
+   "first_seen": "2020-03-18T12:42:43.410424Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0xac1267352e260229f34d68430b53b0dd86cce545": {
+   "chain": "ethereum",
+   "address": "0xac1267352e260229f34d68430b53b0dd86cce545",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 2693,
+   "first_seen": "2021-07-14T06:31:45.589713Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0xd56f8b69e3d3f88d455ec3d29984ef1bf2a67de8": {
+   "chain": "ethereum",
+   "address": "0xd56f8b69e3d3f88d455ec3d29984ef1bf2a67de8",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 1371,
+   "first_seen": "2022-06-01T12:56:55.540268Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x28e906e2352126690d507554337ab396623a8e58": {
+   "chain": "ethereum",
+   "address": "0x28e906e2352126690d507554337ab396623a8e58",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 971,
+   "first_seen": "2024-10-30T14:20:09.028478Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  }
+ },
+ "transfers": {
+  "0x3e8f9fdb1c53c66b9b2faea877211fcd7d240ef4": [
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x139ae2e53ad381e8049b5302e346138ba4bddecc0b3643799048f6dab72bff2e",
+    "block_number": 23574138,
+    "timestamp": "2026-10-16T21:47:34.865718Z",
+    "from_address": "0xac1267352e260229f34d68430b53b0dd86cce545",
+    "to_address": "0x3e8f9fdb1c53c66b9b2faea877211fcd7d240ef4",
+    "asset": "ETH",
+    "amount": 1.066934
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x368bfb264e2e73364bfda646c2f4fda5f390799189431a660b772aaf55dcf5f9",
+    "block_number": 23476685,
+    "timestamp": "2026-10-03T08:56:55.923519Z",
+    "from_address": "0x93f3ee552bc63af4c37187d3571addcfac5b2acd",
+    "to_address": "0x3e8f9fdb1c53c66b9b2faea877211fcd7d240ef4",
+    "asset": "ETH",
+    "amount": 0.454666
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x934c240b6f359529744d2f72434aed43ea426d4c6b596a980eaef8245992bf07",
+    "block_number": 23441659,
+    "timestamp": "2026-09-28T12:11:36.299897Z",
+    "from_address": "0xd56f8b69e3d3f88d455ec3d29984ef1bf2a67de8",
+    "to_address": "0x3e8f9fdb1c53c66b9b2faea877211fcd7d240ef4",
+    "asset": "ETH",
+    "amount": 0.537525
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x52c48d9534f551ea4adcfc605dc7ad8d8514197eaace96077b7c2dfebf40abe7",
+    "block_number": 23413169,
+    "timestamp": "2026-09-24T13:13:42.702391Z",
+    "from_address": "0x28e906e2352126690d507554337ab396623a8e58",
+    "to_address": "0x3e8f9fdb1c53c66b9b2faea877211fcd7d240ef4",
+    "asset": "ETH",
+    "amount": 2.95436
+   }
+  ]
+ },
+ "sanctions": {
+  "0x93f3ee552bc63af4c37187d3571addcfac5b2acd": null,
+  "0xac1267352e260229f34d68430b53b0dd86cce545": null,
+  "0xd56f8b69e3d3f88d455ec3d29984ef1bf2a67de8": null,
+  "0x28e906e2352126690d507554337ab396623a8e58": null,
+  "0x3e8f9fdb1c53c66b9b2faea877211fcd7d240ef4": null
+ },
+ "scam_reports": {
+  "0x93f3ee552bc63af4c37187d3571addcfac5b2acd": [],
+  "0xac1267352e260229f34d68430b53b0dd86cce545": [],
+  "0xd56f8b69e3d3f88d455ec3d29984ef1bf2a67de8": [],
+  "0x28e906e2352126690d507554337ab396623a8e58": [],
+  "0x3e8f9fdb1c53c66b9b2faea877211fcd7d240ef4": [
+   {
+    "address": "0x3e8f9fdb1c53c66b9b2faea877211fcd7d240ef4",
+    "category": "honeypot",
+    "source": "synthetic-feed",
+    "description": "Community report: honeypot."
+   }
+  ]
+ }
+}
