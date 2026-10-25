@@ -15,6 +15,7 @@ from langgraph.checkpoint.memory import InMemorySaver
 from sentinel.app.runner import read_case, stream_case
 from sentinel.app.wiring import build_checkpointer, default_callbacks
 from sentinel.core.schemas import Case
+from sentinel.observability import UsageCallbackHandler
 from tests.app.conftest import app_settings, runtime_factory
 from tests.fakes import CLEAN
 
@@ -40,8 +41,9 @@ async def test_in_memory_checkpointer_without_database() -> None:
     assert isinstance(saver, InMemorySaver)
 
 
-def test_no_callbacks_without_langfuse_keys() -> None:
-    assert default_callbacks(app_settings()) == []
+def test_only_usage_callback_without_langfuse_keys() -> None:
+    [handler] = default_callbacks(app_settings())
+    assert isinstance(handler, UsageCallbackHandler)
 
 
 def test_langfuse_handler_when_keys_are_set(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -67,7 +69,9 @@ def test_langfuse_handler_when_keys_are_set(monkeypatch: pytest.MonkeyPatch) -> 
     )
     handlers = default_callbacks(settings)
 
-    assert len(handlers) == 1 and isinstance(handlers[0], FakeHandler)
+    assert len(handlers) == 2
+    assert isinstance(handlers[0], UsageCallbackHandler)
+    assert isinstance(handlers[1], FakeHandler)
     assert created["client"] == {
         "public_key": "pk-test",
         "secret_key": "sk-test",

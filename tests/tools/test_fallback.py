@@ -190,7 +190,7 @@ async def test_aclose_closes_each_source_once() -> None:
 async def test_from_settings_builds_rpc_then_etherscan() -> None:
     source = FallbackChainData.from_settings(
         Settings(etherscan_api_key="e-key"),
-        RpcSettings(eth_rpc_url="https://rpc.example.test/k", alchemy_api_key="a-key"),
+        RpcSettings(eth_rpc_urls="https://rpc.example.test/k", alchemy_api_key="a-key"),
     )
     async with source:
         assert [type(s) for s in source._sources] == [RpcChainData, EtherscanChainData]
@@ -199,20 +199,36 @@ async def test_from_settings_builds_rpc_then_etherscan() -> None:
 
 async def test_from_settings_with_one_source() -> None:
     rpc_only = FallbackChainData.from_settings(
-        Settings(etherscan_api_key=None), RpcSettings(eth_rpc_url=None, alchemy_api_key="a-key")
+        Settings(etherscan_api_key=None), RpcSettings(eth_rpc_urls=None, alchemy_api_key="a-key")
     )
     async with rpc_only:
         assert [type(s) for s in rpc_only._sources] == [RpcChainData]
         assert rpc_only._enricher is None
     etherscan_only = FallbackChainData.from_settings(
-        Settings(etherscan_api_key="e-key"), RpcSettings(eth_rpc_url=None, alchemy_api_key=None)
+        Settings(etherscan_api_key="e-key"), RpcSettings(eth_rpc_urls=None, alchemy_api_key=None)
     )
     async with etherscan_only:
         assert [type(s) for s in etherscan_only._sources] == [EtherscanChainData]
 
 
+async def test_from_settings_builds_one_rpc_source_per_url() -> None:
+    source = FallbackChainData.from_settings(
+        Settings(etherscan_api_key="e-key"),
+        RpcSettings(
+            eth_rpc_urls="https://a.example.test/k1, https://b.example.test/k2,",
+            alchemy_api_key="a-key",
+        ),
+    )
+    async with source:
+        assert [type(s) for s in source._sources] == [
+            RpcChainData,
+            RpcChainData,
+            EtherscanChainData,
+        ]
+
+
 def test_from_settings_requires_a_source() -> None:
     with pytest.raises(ChainDataConfigError, match="no chain-data source configured"):
         FallbackChainData.from_settings(
-            Settings(etherscan_api_key=None), RpcSettings(eth_rpc_url=None, alchemy_api_key=None)
+            Settings(etherscan_api_key=None), RpcSettings(eth_rpc_urls=None, alchemy_api_key=None)
         )

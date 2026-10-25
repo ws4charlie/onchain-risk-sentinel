@@ -28,7 +28,8 @@ from sentinel.app.settings import AppSettings
 from sentinel.core.ports import PatternKnowledgeBase, Ports
 from sentinel.knowledge import HashingEmbeddings, VectorPatternKnowledgeBase, default_embeddings
 from sentinel.knowledge.pgvector import PgVectorPatternKnowledgeBase
-from sentinel.tools import EtherscanChainData, FeedScamIntel, OfacSanctions
+from sentinel.observability import UsageCallbackHandler
+from sentinel.tools import FallbackChainData, FeedScamIntel, OfacSanctions
 
 logger = logging.getLogger(__name__)
 
@@ -65,7 +66,7 @@ async def build_ports(
     (`ports.chain_data.aclose()`, and the pool if this function opened it).
     """
     stack = stack if stack is not None else AsyncExitStack()
-    chain_data = EtherscanChainData.from_settings(settings)
+    chain_data = FallbackChainData.from_settings(settings)
     stack.push_async_callback(chain_data.aclose)
     sanctions = await asyncio.to_thread(OfacSanctions.from_snapshot)
     scam_intel = await FeedScamIntel.load()
@@ -98,9 +99,10 @@ async def build_checkpointer(
 
 
 def default_callbacks(settings: AppSettings) -> list[BaseCallbackHandler]:
-    """Callbacks attached to every graph run: Langfuse tracing when configured, else none."""
+    """Callbacks for every graph run: token usage and cost, plus Langfuse when configured."""
+    callbacks: list[BaseCallbackHandler] = [UsageCallbackHandler()]
     if not settings.langfuse_enabled:
-        return []
+        return callbacks
     try:
         from langfuse import Langfuse
         from langfuse.langchain import CallbackHandler
@@ -114,7 +116,8 @@ def default_callbacks(settings: AppSettings) -> list[BaseCallbackHandler]:
         secret_key=settings.langfuse_secret_key.get_secret_value(),
         host=settings.langfuse_host,
     )
-    return [CallbackHandler(public_key=settings.langfuse_public_key)]
+    callbacks.append(CallbackHandler(public_key=settings.langfuse_public_key))
+    return callbacks
 
 
 def _flush_langfuse(settings: AppSettings) -> None:

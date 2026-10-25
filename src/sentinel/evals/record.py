@@ -40,7 +40,7 @@ from sentinel.evals.dataset import (
     snapshot_path,
     write_snapshot,
 )
-from sentinel.tools import EtherscanChainData, FeedScamIntel, OfacSanctions
+from sentinel.tools import FallbackChainData, FeedScamIntel, OfacSanctions
 
 logger = logging.getLogger(__name__)
 
@@ -122,9 +122,13 @@ async def run(
     settings = Settings()
     sanctions = OfacSanctions.from_snapshot()
     scam_intel = await FeedScamIntel.load()
-    sources = {"chain_data": "etherscan", "sanctions": "ofac_snapshot", "scam_intel": "feeds"}
+    sources = {
+        "chain_data": "rpc_with_etherscan_fallback",
+        "sanctions": "ofac_snapshot",
+        "scam_intel": "feeds",
+    }
     written: list[Path] = []
-    async with EtherscanChainData.from_settings(settings) as chain:
+    async with FallbackChainData.from_settings(settings) as chain:
         for case in cases:
             snapshot = await record_case(
                 case,

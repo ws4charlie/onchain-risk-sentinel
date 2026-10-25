@@ -329,14 +329,14 @@ async def test_rejects_bad_address() -> None:
 def test_requires_a_provider() -> None:
     with pytest.raises(RpcError):
         RpcChainData()
-    with pytest.raises(RpcError, match="SENTINEL_ETH_RPC_URL"):
-        RpcChainData.from_settings(RpcSettings(eth_rpc_url=None, alchemy_api_key=None))
+    with pytest.raises(RpcError, match="SENTINEL_ETH_RPC_URLS"):
+        RpcChainData.from_settings(RpcSettings(eth_rpc_urls=None, alchemy_api_key=None))
     with pytest.raises(RpcError):
         JsonRpcClient("")
 
 
 def test_from_settings_reads_secrets() -> None:
-    settings = RpcSettings(eth_rpc_url=SecretStr(RPC_URL), alchemy_api_key=None)
+    settings = RpcSettings(eth_rpc_urls=SecretStr(RPC_URL), alchemy_api_key=None)
     source = RpcChainData.from_settings(settings)
     assert isinstance(source, RpcChainData)
     assert RPC_KEY not in repr(settings)
@@ -348,9 +348,10 @@ LIVE_ADDRESS = "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
 
 @pytest.mark.live
 async def test_live_json_rpc() -> None:
-    url = RpcSettings().eth_rpc_url
-    if url is None:
-        pytest.skip("SENTINEL_ETH_RPC_URL not set")
+    urls = RpcSettings().rpc_urls()
+    if not urls:
+        pytest.skip("SENTINEL_ETH_RPC_URLS not set")
+    url = urls[0]
     async with JsonRpcClient(url) as rpc:
         code = await rpc.call("eth_getCode", [LIVE_ADDRESS, "latest"])
         balance = await rpc.call("eth_getBalance", [LIVE_ADDRESS, "latest"])

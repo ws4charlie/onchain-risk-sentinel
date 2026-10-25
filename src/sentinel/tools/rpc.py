@@ -57,8 +57,13 @@ class RpcSettings(BaseSettings):
 
     model_config = SettingsConfigDict(env_prefix="SENTINEL_", env_file=".env", extra="ignore")
 
-    eth_rpc_url: SecretStr | None = None
+    eth_rpc_urls: SecretStr | None = None
     alchemy_api_key: SecretStr | None = None
+
+    def rpc_urls(self) -> list[str]:
+        """`SENTINEL_ETH_RPC_URLS` split on commas, in priority order."""
+        raw = _secret(self.eth_rpc_urls) or ""
+        return [url.strip() for url in raw.split(",") if url.strip()]
 
 
 def _secret(value: str | SecretStr | None) -> str | None:
@@ -266,7 +271,7 @@ class RpcChainData:
         url, key = _secret(rpc_url), _secret(alchemy_api_key)
         if url is None and key is None:
             raise RpcError(
-                "a node provider is required (SENTINEL_ETH_RPC_URL or SENTINEL_ALCHEMY_API_KEY)"
+                "a node provider is required (SENTINEL_ETH_RPC_URLS or SENTINEL_ALCHEMY_API_KEY)"
             )
         self._owns_client = client is None
         self._client = client or httpx.AsyncClient(timeout=httpx.Timeout(timeout))
@@ -289,10 +294,13 @@ class RpcChainData:
 
     @classmethod
     def from_settings(cls, settings: RpcSettings | None = None, **kwargs: Any) -> Self:
+        """Use the first configured RPC URL; `FallbackChainData` uses all of them."""
         settings = settings or RpcSettings()
-        if settings.eth_rpc_url is None and settings.alchemy_api_key is None:
-            raise RpcError("neither SENTINEL_ETH_RPC_URL nor SENTINEL_ALCHEMY_API_KEY is set")
-        return cls(settings.eth_rpc_url, alchemy_api_key=settings.alchemy_api_key, **kwargs)
+        urls = settings.rpc_urls()
+        if not urls and settings.alchemy_api_key is None:
+            raise RpcError("neither SENTINEL_ETH_RPC_URLS nor SENTINEL_ALCHEMY_API_KEY is set")
+        url = urls[0] if urls else None
+        return cls(url, alchemy_api_key=settings.alchemy_api_key, **kwargs)
 
     async def aclose(self) -> None:
         if self._owns_client:

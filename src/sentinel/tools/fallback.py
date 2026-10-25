@@ -68,15 +68,22 @@ class FallbackChainData:
         rpc_settings: RpcSettings | None = None,
         **kwargs: Any,
     ) -> Self:
-        """RPC first and Etherscan second (also naming contracts), from whichever is set.
+        """Every RPC URL in priority order, then Etherscan (also naming contracts).
+
+        One `RpcChainData` per URL in `SENTINEL_ETH_RPC_URLS`, all sharing the Alchemy
+        key for history; with no URLs, Alchemy alone serves both.
 
         `kwargs` are passed to every adapter constructor (e.g. a shared `client`).
         """
         settings = settings or Settings()
         rpc_settings = rpc_settings or RpcSettings()
         sources: list[ChainDataSource] = []
-        if rpc_settings.eth_rpc_url is not None or rpc_settings.alchemy_api_key is not None:
-            sources.append(RpcChainData.from_settings(rpc_settings, **kwargs))
+        alchemy_key = rpc_settings.alchemy_api_key
+        urls = rpc_settings.rpc_urls()
+        for url in urls:
+            sources.append(RpcChainData(url, alchemy_api_key=alchemy_key, **kwargs))
+        if not urls and alchemy_key is not None:
+            sources.append(RpcChainData(None, alchemy_api_key=alchemy_key, **kwargs))
         etherscan = (
             EtherscanChainData.from_settings(settings, **kwargs)
             if settings.etherscan_api_key is not None
@@ -86,7 +93,7 @@ class FallbackChainData:
             sources.append(etherscan)
         if not sources:
             raise ChainDataConfigError(
-                "no chain-data source configured: set SENTINEL_ETH_RPC_URL or "
+                "no chain-data source configured: set SENTINEL_ETH_RPC_URLS or "
                 "SENTINEL_ALCHEMY_API_KEY, and/or SENTINEL_ETHERSCAN_API_KEY"
             )
         return cls(*sources, enrich_labels_from=etherscan)

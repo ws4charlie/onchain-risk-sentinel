@@ -3,12 +3,16 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 import time
 from collections.abc import Awaitable, Callable
 
 import httpx
 
 RETRYABLE_STATUS = frozenset({429, 500, 502, 503, 504})
+
+# httpx logs full request URLs at INFO, and provider URLs carry API keys.
+logging.getLogger("httpx").setLevel(logging.WARNING)
 
 
 class RateLimiter:

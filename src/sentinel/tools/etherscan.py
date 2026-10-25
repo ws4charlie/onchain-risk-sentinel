@@ -119,7 +119,7 @@ class EtherscanChainData:
 
         labels: list[str] = []
         if is_contract:
-            labels.append(await self._contract_label(chain, address))
+            labels.append(await self.contract_label(chain, address))
 
         return AddressProfile(
             chain=chain,
@@ -182,7 +182,8 @@ class EtherscanChainData:
             amount=_scaled(row["value"], int(row.get("tokenDecimal") or 0)),
         )
 
-    async def _contract_label(self, chain: Chain, address: str) -> str:
+    async def contract_label(self, chain: Chain, address: str) -> str:
+        """`contract:<Name>` for verified contracts, else `contract:unverified`."""
         result = await self._call(chain, module="contract", action="getsourcecode", address=address)
         name = result[0].get("ContractName", "") if isinstance(result, list) and result else ""
         return f"contract:{name}" if name else "contract:unverified"
