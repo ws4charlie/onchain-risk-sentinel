@@ -1,0 +1,108 @@
+{
+  "_comment": "Hand-written alchemy_getAssetTransfers results in the documented shape (https://www.alchemy.com/docs/reference/alchemy-getassettransfers). Synthetic addresses; subject is 0xabab...ab.",
+  "from_desc": {
+    "transfers": [
+      {
+        "blockNum": "0x1406f7c",
+        "uniqueId": "0x2222000000000000000000000000000000000000000000000000000000000002:external",
+        "hash": "0x2222000000000000000000000000000000000000000000000000000000000002",
+        "from": "0xabababababababababababababababababababab",
+        "to": "0x3333000000000000000000000000000000000003",
+        "value": 0.25,
+        "asset": "ETH",
+        "category": "external",
+        "rawContract": {"value": "0x3782dace9d90000", "address": null, "decimal": "0x12"},
+        "metadata": {"blockTimestamp": "2025-10-01T09:00:00.000Z"}
+      },
+      {
+        "blockNum": "0x1406f60",
+        "uniqueId": "0x4444000000000000000000000000000000000000000000000000000000000004:internal:0",
+        "hash": "0x4444000000000000000000000000000000000000000000000000000000000004",
+        "from": "0xabababababababababababababababababababab",
+        "to": "0x5555000000000000000000000000000000000005",
+        "value": 1.0,
+        "asset": "ETH",
+        "category": "internal",
+        "rawContract": {"value": "0xde0b6b3a7640000", "address": null, "decimal": "0x12"},
+        "metadata": {"blockTimestamp": "2025-09-30T12:00:00.000Z"}
+      }
+    ],
+    "pageKey": ""
+  },
+  "to_desc": {
+    "transfers": [
+      {
+        "blockNum": "0x1406f88",
+        "uniqueId": "0x6666000000000000000000000000000000000000000000000000000000000006:log:7",
+        "hash": "0x6666000000000000000000000000000000000000000000000000000000000006",
+        "from": "0x1111999999999999999999999999999999991a2b",
+        "to": "0xabababababababababababababababababababab",
+        "value": 0,
+        "asset": "USDT",
+        "category": "erc20",
+        "rawContract": {"value": "0x0", "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7", "decimal": "0x6"},
+        "metadata": {"blockTimestamp": "2025-10-01T10:00:00.000Z"}
+      },
+      {
+        "blockNum": "0x1406f5e",
+        "uniqueId": "0x7777000000000000000000000000000000000000000000000000000000000007:log:2",
+        "hash": "0x7777000000000000000000000000000000000000000000000000000000000007",
+        "from": "0x8888000000000000000000000000000000000008",
+        "to": "0xabababababababababababababababababababab",
+        "value": 1250.5,
+        "asset": "USDT",
+        "category": "erc20",
+        "rawContract": {"value": "0x4a891da0", "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7", "decimal": "0x6"},
+        "metadata": {"blockTimestamp": "2025-09-30T11:00:00.000Z"}
+      },
+      {
+        "blockNum": "0x1406f50",
+        "uniqueId": "0x9999000000000000000000000000000000000000000000000000000000000009:log:0",
+        "hash": "0x9999000000000000000000000000000000000000000000000000000000000009",
+        "from": "0x8888000000000000000000000000000000000008",
+        "to": "0xabababababababababababababababababababab",
+        "value": null,
+        "asset": null,
+        "category": "erc20",
+        "rawContract": {"value": "0x7b", "address": "0xC0FFEE0000000000000000000000000000000001", "decimal": null},
+        "metadata": {"blockTimestamp": "2025-09-29T00:00:00.000Z"}
+      }
+    ],
+    "pageKey": ""
+  },
+  "from_asc_first": {
+    "transfers": [
+      {
+        "blockNum": "0xe4e1c0",
+        "uniqueId": "0xaaaa00000000000000000000000000000000000000000000000000000000000a:external",
+        "hash": "0xaaaa00000000000000000000000000000000000000000000000000000000000a",
+        "from": "0xabababababababababababababababababababab",
+        "to": "0x3333000000000000000000000000000000000003",
+        "value": 0.1,
+        "asset": "ETH",
+        "category": "external",
+        "rawContract": {"value": "0x16345785d8a0000", "address": null, "decimal": "0x12"},
+        "metadata": {"blockTimestamp": "2022-07-02T00:00:00.000Z"}
+      }
+    ],
+    "pageKey": "b7c1d0a2-0000-4000-8000-000000000001"
+  },
+  "to_asc_first": {
+    "transfers": [
+      {
+        "blockNum": "0xe4e100",
+        "uniqueId": "0xbbbb00000000000000000000000000000000000000000000000000000000000b:external",
+        "hash": "0xbbbb00000000000000000000000000000000000000000000000000000000000b",
+        "from": "0x8888000000000000000000000000000000000008",
+        "to": "0xabababababababababababababababababababab",
+        "value": 2.0,
+        "asset": "ETH",
+        "category": "external",
+        "rawContract": {"value": "0x1bc16d674ec80000", "address": null, "decimal": "0x12"},
+        "metadata": {"blockTimestamp": "2022-07-01T00:00:00.000Z"}
+      }
+    ],
+    "pageKey": "b7c1d0a2-0000-4000-8000-000000000002"
+  },
+  "empty": {"transfers": [], "pageKey": ""}
+}

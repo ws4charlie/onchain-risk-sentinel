@@ -14,10 +14,12 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="SENTINEL_", env_file=".env", extra="ignore")
 
     # Model per role, as "<provider>:<model>" strings for langchain's init_chat_model.
-    supervisor_model: str = "openai:gpt-5.4-mini"
-    specialist_model: str = "google_genai:gemini-flash-latest"
-    scorer_model: str = "openai:gpt-5.4-mini"
-    critic_model: str = "openai:gpt-5.4-mini"
+    # Default: Gemini 3.5 Flash-Lite for every role, the best of the first eval comparison
+    # (evals/reports) on quality, latency and cost.
+    supervisor_model: str = "openrouter:google/gemini-3.5-flash-lite"
+    specialist_model: str = "openrouter:google/gemini-3.5-flash-lite"
+    scorer_model: str = "openrouter:google/gemini-3.5-flash-lite"
+    critic_model: str = "openrouter:google/gemini-3.5-flash-lite"
     temperature: float = 0.0
 
     # Graph limits.

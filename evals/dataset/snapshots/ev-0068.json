@@ -1,0 +1,94 @@
+{
+ "case_id": "ev-0068",
+ "origin": "synthetic",
+ "recorded_at": "2026-10-20T12:00:00Z",
+ "sources": {
+  "chain_data": "synthetic",
+  "sanctions": "synthetic",
+  "scam_intel": "synthetic"
+ },
+ "profiles": {
+  "0x51ac9c92b48935c952e11609e7e48e3c5e653080": {
+   "chain": "ethereum",
+   "address": "0x51ac9c92b48935c952e11609e7e48e3c5e653080",
+   "is_contract": false,
+   "balance_wei": 150000000000000000000,
+   "tx_count": 7,
+   "first_seen": "2026-10-18T13:55:33.548708Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x841524d87460d0424ae671964347adf7db3d6238": {
+   "chain": "ethereum",
+   "address": "0x841524d87460d0424ae671964347adf7db3d6238",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 4,
+   "first_seen": "2026-10-16T14:18:45.024570Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x522f7b1572b9654f93b20f2205bbd664e5e7c1c5": {
+   "chain": "ethereum",
+   "address": "0x522f7b1572b9654f93b20f2205bbd664e5e7c1c5",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 4,
+   "first_seen": "2026-10-17T18:19:37.180451Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x9dafaf4ddbdee343dd812e8dfde62aa16fd8f9fc": {
+   "chain": "ethereum",
+   "address": "0x9dafaf4ddbdee343dd812e8dfde62aa16fd8f9fc",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 4,
+   "first_seen": "2026-10-16T14:11:57.262988Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  }
+ },
+ "transfers": {
+  "0x51ac9c92b48935c952e11609e7e48e3c5e653080": [
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x21375abb5f775059dde3bb626fe3f47e3fbc1a920b9ef94ba15deb86c217a3e9",
+    "block_number": 23597796,
+    "timestamp": "2026-10-20T04:39:03.701811Z",
+    "from_address": "0x841524d87460d0424ae671964347adf7db3d6238",
+    "to_address": "0x51ac9c92b48935c952e11609e7e48e3c5e653080",
+    "asset": "ETH",
+    "amount": 77.486415
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x0463ff8b9665277a47e5c9080d6ca457c0401f3dffa4f9752d8b2a25c4614ad4",
+    "block_number": 23595832,
+    "timestamp": "2026-10-19T22:06:15.117631Z",
+    "from_address": "0x522f7b1572b9654f93b20f2205bbd664e5e7c1c5",
+    "to_address": "0x51ac9c92b48935c952e11609e7e48e3c5e653080",
+    "asset": "ETH",
+    "amount": 89.03093
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x55fafd11bd0f541a3106646b2d986de7935f4c3bd142b7327dfcb23f4641d6ad",
+    "block_number": 23587577,
+    "timestamp": "2026-10-18T18:35:17.028941Z",
+    "from_address": "0x9dafaf4ddbdee343dd812e8dfde62aa16fd8f9fc",
+    "to_address": "0x51ac9c92b48935c952e11609e7e48e3c5e653080",
+    "asset": "ETH",
+    "amount": 53.045053
+   }
+  ]
+ },
+ "sanctions": {
+  "0x841524d87460d0424ae671964347adf7db3d6238": null,
+  "0x522f7b1572b9654f93b20f2205bbd664e5e7c1c5": null,
+  "0x9dafaf4ddbdee343dd812e8dfde62aa16fd8f9fc": null,
+  "0x51ac9c92b48935c952e11609e7e48e3c5e653080": null
+ },
+ "scam_reports": {
+  "0x841524d87460d0424ae671964347adf7db3d6238": [],
+  "0x522f7b1572b9654f93b20f2205bbd664e5e7c1c5": [],
+  "0x9dafaf4ddbdee343dd812e8dfde62aa16fd8f9fc": [],
+  "0x51ac9c92b48935c952e11609e7e48e3c5e653080": []
+ }
+}

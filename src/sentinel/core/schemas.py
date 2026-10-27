@@ -101,6 +101,10 @@ class Verdict(_Model):
     findings: list[Finding] = Field(default_factory=list)
     needs_human_review: bool = False
     reviewed_by: str | None = None
+    user_notice: str | None = Field(
+        default=None,
+        description="Plain-language warning for the withdrawing user (fixed templates only).",
+    )
 
 
 class ReviewDecision(_Model):

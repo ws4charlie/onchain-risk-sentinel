@@ -1,0 +1,122 @@
+{
+ "case_id": "ev-0050",
+ "origin": "synthetic",
+ "recorded_at": "2026-10-20T12:00:00Z",
+ "sources": {
+  "chain_data": "synthetic",
+  "sanctions": "synthetic",
+  "scam_intel": "synthetic"
+ },
+ "profiles": {
+  "0xe101bcf69236a3bfa1d75e32bbb65cfe7ea81871": {
+   "chain": "ethereum",
+   "address": "0xe101bcf69236a3bfa1d75e32bbb65cfe7ea81871",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 551,
+   "first_seen": "2026-03-17T01:24:18.191581Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x83720a57c650a43c788645db843936b9d952d775": {
+   "chain": "ethereum",
+   "address": "0x83720a57c650a43c788645db843936b9d952d775",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 2312,
+   "first_seen": "2020-06-12T06:22:18.022554Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x10ca9aa74a586735503da402be76ba5a22fc4b50": {
+   "chain": "ethereum",
+   "address": "0x10ca9aa74a586735503da402be76ba5a22fc4b50",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 1208,
+   "first_seen": "2022-01-17T10:52:48.337203Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0xe8ed5e89af6857454dd9ca47f96ebe33b76d64c5": {
+   "chain": "ethereum",
+   "address": "0xe8ed5e89af6857454dd9ca47f96ebe33b76d64c5",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 2145,
+   "first_seen": "2024-05-10T18:59:53.145374Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  },
+  "0x877d1e6f2d0355eafb99c76442df1f3b11eabc88": {
+   "chain": "ethereum",
+   "address": "0x877d1e6f2d0355eafb99c76442df1f3b11eabc88",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 2051,
+   "first_seen": "2025-06-11T01:10:47.794990Z",
+   "last_seen": "2026-10-20T00:00:00Z"
+  }
+ },
+ "transfers": {
+  "0xe101bcf69236a3bfa1d75e32bbb65cfe7ea81871": [
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x5a66c9bfb4ac049cf2ed51fbbbee86364bcd998db86f7392c309ea903323ba60",
+    "block_number": 23576194,
+    "timestamp": "2026-10-17T04:38:36.638998Z",
+    "from_address": "0xe8ed5e89af6857454dd9ca47f96ebe33b76d64c5",
+    "to_address": "0xe101bcf69236a3bfa1d75e32bbb65cfe7ea81871",
+    "asset": "ETH",
+    "amount": 2.048234
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0xd9906be12bbea8c95f55e7cfe002dc39e740a40af17b183634f2304261c0899e",
+    "block_number": 23557579,
+    "timestamp": "2026-10-14T14:35:47.684666Z",
+    "from_address": "0x10ca9aa74a586735503da402be76ba5a22fc4b50",
+    "to_address": "0xe101bcf69236a3bfa1d75e32bbb65cfe7ea81871",
+    "asset": "ETH",
+    "amount": 0.143543
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0xeb6d063802f96d441bede8f2d30b203e0c4d183292553e9e134b1f7a47ba361a",
+    "block_number": 23529765,
+    "timestamp": "2026-10-10T17:52:51.390988Z",
+    "from_address": "0x877d1e6f2d0355eafb99c76442df1f3b11eabc88",
+    "to_address": "0xe101bcf69236a3bfa1d75e32bbb65cfe7ea81871",
+    "asset": "ETH",
+    "amount": 2.942094
+   },
+   {
+    "chain": "ethereum",
+    "tx_hash": "0x745e1d7740f8b0519f6639b17c6c0a426b32da606a9f7301ed0dc9c443cacf1e",
+    "block_number": 23390663,
+    "timestamp": "2026-09-21T10:12:29.565533Z",
+    "from_address": "0x83720a57c650a43c788645db843936b9d952d775",
+    "to_address": "0xe101bcf69236a3bfa1d75e32bbb65cfe7ea81871",
+    "asset": "ETH",
+    "amount": 2.981086
+   }
+  ]
+ },
+ "sanctions": {
+  "0x83720a57c650a43c788645db843936b9d952d775": null,
+  "0x10ca9aa74a586735503da402be76ba5a22fc4b50": null,
+  "0xe8ed5e89af6857454dd9ca47f96ebe33b76d64c5": null,
+  "0x877d1e6f2d0355eafb99c76442df1f3b11eabc88": null,
+  "0xe101bcf69236a3bfa1d75e32bbb65cfe7ea81871": null
+ },
+ "scam_reports": {
+  "0x83720a57c650a43c788645db843936b9d952d775": [],
+  "0x10ca9aa74a586735503da402be76ba5a22fc4b50": [],
+  "0xe8ed5e89af6857454dd9ca47f96ebe33b76d64c5": [],
+  "0x877d1e6f2d0355eafb99c76442df1f3b11eabc88": [],
+  "0xe101bcf69236a3bfa1d75e32bbb65cfe7ea81871": [
+   {
+    "address": "0xe101bcf69236a3bfa1d75e32bbb65cfe7ea81871",
+    "category": "ponzi",
+    "source": "synthetic-feed",
+    "description": "Community report: ponzi."
+   }
+  ]
+ }
+}
