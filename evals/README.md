@@ -153,12 +153,20 @@ CI (`.github/workflows/evals.yml`, manual or on pull requests to `main`) runs th
 
 ## Latest results
 
-Run 2026-10-25, 71 runnable cases (full report: `reports/2026-10-25-comparison.md`).
-Only the local configuration could run; cloud configurations need provider keys.
+87 cases, default configuration (Gemini 3.5 Flash-Lite), after counterparty screening
+(report: [`reports/2026-10-26-screening-impact.md`](reports/2026-10-26-screening-impact.md)).
 
-| Config | Errors | Accuracy | Block recall | False block | Pause | Evidence cov. | p95 s | Tokens/case | Cost/case |
-|---|---|---|---|---|---|---|---|---|---|
-| `ollama-qwen` | 15 | 41% | 67% | 0% | 30% | 88% | 183 | 8,628 | $0 |
+| Accuracy | Block recall | False block | Errors | p50 s | Cost/case |
+|---|---|---|---|---|---|
+| 96.6% | 100% | 0% | 0 | 7.5 | $0.007 |
 
-The 15 errors come from one bug, the same for every model: checkpointing crashes when
-a profile balance is 2^64 wei (about 18.45 ETH) or more. See the report.
+Measured on the development set: the rules were designed after studying its failures,
+so the number is optimistic until a held-out test set exists.
+
+History:
+
+| Date | Run | Accuracy | Why it changed |
+|---|---|---|---|
+| 2026-10-25 | local Qwen3 8B | 41% | first run: 15 crashes (balance >= 2^64 wei), skipped sanctions checks, weak local model |
+| 2026-10-26 | Flash-Lite, GPT-5.4 mini, GPT-5.4 nano | 74-77% | crash fixed, mandatory screening; misses were indirect-risk cases ([comparison](reports/2026-10-26-comparison.md)) |
+| 2026-10-26 | Flash-Lite | 96.6% | counterparty screening, flow features, hold floors |
