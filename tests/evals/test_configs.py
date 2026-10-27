@@ -12,7 +12,7 @@ from sentinel.evals.configs import CONFIGS, build_models, get_config
 def test_missing_keys_are_reported(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
-    missing = CONFIGS["default"].missing_requirements()
+    missing = CONFIGS["mixed-flash"].missing_requirements()
     assert any("OPENAI_API_KEY" in m for m in missing)
     assert any("OPENROUTER_API_KEY" in m for m in missing)
 

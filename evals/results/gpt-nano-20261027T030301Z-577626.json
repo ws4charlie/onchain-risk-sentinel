@@ -1,0 +1,5073 @@
+{
+ "run_id": "gpt-nano-20261027T030301Z-577626",
+ "config": {
+  "name": "gpt-nano",
+  "description": "All roles on GPT-5.4 nano.",
+  "supervisor": "openai:gpt-5.4-nano",
+  "specialist": "openai:gpt-5.4-nano",
+  "scorer": "openai:gpt-5.4-nano",
+  "critic": "openai:gpt-5.4-nano",
+  "model_kwargs": {}
+ },
+ "started_at": "2026-10-27T03:03:01.712815Z",
+ "finished_at": "2026-10-27T03:11:27.465102Z",
+ "dataset_sha256": "2b3ff27417fff0e3e62ed29def6e801944b722525ee23032575c5e25ed035461",
+ "concurrency": 4,
+ "prices": {
+  "openai:gpt-5.4-nano": "https://developers.openai.com/api/docs/models/gpt-5.4-nano (2026-10-25)"
+ },
+ "cases": [
+  {
+   "case_id": "ev-0001",
+   "scenario": "sanctioned_direct",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "synthetic",
+    "smoke"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 1,
+   "medium_plus_with_evidence": 1,
+   "paused": true,
+   "latency_s": 13.338,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 6,
+     "input_tokens": 3840,
+     "output_tokens": 637,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00156425
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 1957,
+     "output_tokens": 557,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00108765
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1954,
+     "output_tokens": 301,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00076705
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1924,
+     "output_tokens": 155,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0005785499999999999
+    }
+   },
+   "usage": {
+    "calls": 13,
+    "input_tokens": 9675,
+    "output_tokens": 1650,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0039975
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0002",
+   "scenario": "drainer_report",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic",
+    "smoke"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 14,
+   "medium_plus_findings": 4,
+   "medium_plus_with_evidence": 4,
+   "paused": true,
+   "latency_s": 31.688,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 17,
+     "input_tokens": 26961,
+     "output_tokens": 2728,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.008802200000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5818,
+     "output_tokens": 1376,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0028836
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5802,
+     "output_tokens": 315,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00155415
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 3766,
+     "output_tokens": 300,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011282
+    }
+   },
+   "usage": {
+    "calls": 25,
+    "input_tokens": 42347,
+    "output_tokens": 4719,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.014368150000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0003",
+   "scenario": "address_poisoning",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic",
+    "smoke"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 26.748,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 11,
+     "input_tokens": 10963,
+     "output_tokens": 1940,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0046176
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3503,
+     "output_tokens": 1510,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0025881
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3515,
+     "output_tokens": 381,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00117925
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 3788,
+     "output_tokens": 288,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011176
+    }
+   },
+   "usage": {
+    "calls": 19,
+    "input_tokens": 21769,
+    "output_tokens": 4119,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.009502549999999998
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0004",
+   "scenario": "sanctioned_one_hop",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 24,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 24.863,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 14,
+     "input_tokens": 17688,
+     "output_tokens": 1764,
+     "cached_input_tokens": 2560,
+     "cost_usd": 0.0052818000000000006
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4696,
+     "output_tokens": 1285,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0025454500000000003
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4621,
+     "output_tokens": 362,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0013767000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1940,
+     "output_tokens": 191,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006267499999999999
+    }
+   },
+   "usage": {
+    "calls": 21,
+    "input_tokens": 28945,
+    "output_tokens": 3602,
+    "cached_input_tokens": 2560,
+    "cost_usd": 0.0098307
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0005",
+   "scenario": "fresh_large_inflow",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic",
+    "smoke"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 22.915,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 7711,
+     "output_tokens": 947,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027259500000000004
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 2859,
+     "output_tokens": 1195,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00206555
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 2855,
+     "output_tokens": 318,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0009685
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 3006,
+     "output_tokens": 269,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00093745
+    }
+   },
+   "usage": {
+    "calls": 16,
+    "input_tokens": 16431,
+    "output_tokens": 2729,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00669745
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0006",
+   "scenario": "nonblocking_scam_report",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 45,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 27.852,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 16,
+     "input_tokens": 26043,
+     "output_tokens": 2273,
+     "cached_input_tokens": 4096,
+     "cost_usd": 0.007312570000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5211,
+     "output_tokens": 1237,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0025884500000000004
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5066,
+     "output_tokens": 433,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0015544500000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2141,
+     "output_tokens": 203,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006819500000000001
+    }
+   },
+   "usage": {
+    "calls": 23,
+    "input_tokens": 38461,
+    "output_tokens": 4146,
+    "cached_input_tokens": 4096,
+    "cost_usd": 0.01213742
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0007",
+   "scenario": "mixer_exposure",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 18,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 27.504,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 17,
+     "input_tokens": 22883,
+     "output_tokens": 2157,
+     "cached_input_tokens": 2560,
+     "cost_usd": 0.006812050000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4782,
+     "output_tokens": 1278,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0025539
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4727,
+     "output_tokens": 339,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00136915
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2236,
+     "output_tokens": 200,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006972
+    }
+   },
+   "usage": {
+    "calls": 24,
+    "input_tokens": 34628,
+    "output_tokens": 3974,
+    "cached_input_tokens": 2560,
+    "cost_usd": 0.011432300000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0008",
+   "scenario": "peel_chain",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 25.6,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 13,
+     "input_tokens": 20001,
+     "output_tokens": 1974,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.006467699999999999
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4847,
+     "output_tokens": 1049,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00228065
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4820,
+     "output_tokens": 312,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0013540000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2349,
+     "output_tokens": 178,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006923000000000001
+    }
+   },
+   "usage": {
+    "calls": 20,
+    "input_tokens": 32017,
+    "output_tokens": 3513,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.010794650000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0009",
+   "scenario": "benign_eoa",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic",
+    "smoke"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 16.285,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 6,
+     "input_tokens": 4972,
+     "output_tokens": 560,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0016944000000000004
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 1780,
+     "output_tokens": 867,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00143975
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1800,
+     "output_tokens": 308,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.000745
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1885,
+     "output_tokens": 188,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.000612
+    }
+   },
+   "usage": {
+    "calls": 13,
+    "input_tokens": 10437,
+    "output_tokens": 1923,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00449115
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0010",
+   "scenario": "benign_contract",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic",
+    "smoke"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 20.159,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 7836,
+     "output_tokens": 911,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027059500000000004
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3925,
+     "output_tokens": 1026,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0020675
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3842,
+     "output_tokens": 395,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00126215
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2141,
+     "output_tokens": 195,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00067195
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 17744,
+    "output_tokens": 2527,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0067075500000000005
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0011",
+   "scenario": "benign_fresh_small",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 18,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 23.669,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 14,
+     "input_tokens": 11454,
+     "output_tokens": 1533,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00420705
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 2164,
+     "output_tokens": 1116,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0018277999999999999
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 2108,
+     "output_tokens": 368,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0008816
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 2995,
+     "output_tokens": 277,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0009452500000000001
+    }
+   },
+   "usage": {
+    "calls": 22,
+    "input_tokens": 18721,
+    "output_tokens": 3294,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0078617
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0012",
+   "scenario": "sanctioned_direct",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 20.261,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 7106,
+     "output_tokens": 914,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0025637000000000004
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3740,
+     "output_tokens": 941,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0019242500000000002
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3716,
+     "output_tokens": 326,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011507000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2086,
+     "output_tokens": 186,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006497
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 16648,
+    "output_tokens": 2367,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00628835
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0013",
+   "scenario": "drainer_report",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 25.921,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 13,
+     "input_tokens": 13965,
+     "output_tokens": 1945,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00522425
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3823,
+     "output_tokens": 1512,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0026546
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3848,
+     "output_tokens": 273,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00111085
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2096,
+     "output_tokens": 192,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006592
+    }
+   },
+   "usage": {
+    "calls": 20,
+    "input_tokens": 23732,
+    "output_tokens": 3922,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0096489
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0014",
+   "scenario": "address_poisoning",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 23.087,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 10173,
+     "output_tokens": 1044,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0033396000000000003
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5572,
+     "output_tokens": 1283,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00271815
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5582,
+     "output_tokens": 378,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0015889
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2361,
+     "output_tokens": 200,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007222000000000001
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 23688,
+    "output_tokens": 2905,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00836885
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0015",
+   "scenario": "sanctioned_one_hop",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 21.287,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 4628,
+     "output_tokens": 960,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0021256
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3791,
+     "output_tokens": 1224,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0022881999999999998
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3690,
+     "output_tokens": 397,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00123425
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2138,
+     "output_tokens": 190,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006651
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 14247,
+    "output_tokens": 2771,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00631315
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0016",
+   "scenario": "fresh_large_inflow",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 4,
+   "evidence": 14,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 26.731,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 22,
+     "input_tokens": 31981,
+     "output_tokens": 2536,
+     "cached_input_tokens": 1536,
+     "cost_usd": 0.009289720000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5716,
+     "output_tokens": 1262,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027206999999999995
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5688,
+     "output_tokens": 358,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0015850999999999999
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2143,
+     "output_tokens": 206,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006861
+    }
+   },
+   "usage": {
+    "calls": 29,
+    "input_tokens": 45528,
+    "output_tokens": 4362,
+    "cached_input_tokens": 1536,
+    "cost_usd": 0.014281620000000002
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0017",
+   "scenario": "nonblocking_scam_report",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "high",
+   "score": 78,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 23.298,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 10,
+     "input_tokens": 9517,
+     "output_tokens": 1463,
+     "cached_input_tokens": 1536,
+     "cost_usd": 0.00345567
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 2874,
+     "output_tokens": 1240,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0021248
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 2864,
+     "output_tokens": 305,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0009540499999999999
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 2988,
+     "output_tokens": 247,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00090635
+    }
+   },
+   "usage": {
+    "calls": 18,
+    "input_tokens": 18243,
+    "output_tokens": 3255,
+    "cached_input_tokens": 1536,
+    "cost_usd": 0.0074408700000000005
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0018",
+   "scenario": "mixer_exposure",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 18,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 24.315,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 7765,
+     "output_tokens": 1096,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.002923
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4309,
+     "output_tokens": 1453,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00267805
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4240,
+     "output_tokens": 355,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00129175
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2462,
+     "output_tokens": 186,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007249
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 18776,
+    "output_tokens": 3090,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.007617700000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0019",
+   "scenario": "peel_chain",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 62,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 21.904,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 15,
+     "input_tokens": 15830,
+     "output_tokens": 2225,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00594725
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3625,
+     "output_tokens": 1058,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0020475
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3509,
+     "output_tokens": 402,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0012043000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1999,
+     "output_tokens": 188,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006348
+    }
+   },
+   "usage": {
+    "calls": 22,
+    "input_tokens": 24963,
+    "output_tokens": 3873,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00983385
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0020",
+   "scenario": "benign_eoa",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 26.308,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 10,
+     "input_tokens": 10668,
+     "output_tokens": 1718,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.004281100000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3816,
+     "output_tokens": 1461,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00258945
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3811,
+     "output_tokens": 341,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011884500000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2157,
+     "output_tokens": 207,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00069015
+    }
+   },
+   "usage": {
+    "calls": 17,
+    "input_tokens": 20452,
+    "output_tokens": 3727,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00874915
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0021",
+   "scenario": "benign_contract",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 24,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 20.969,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 8001,
+     "output_tokens": 951,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027889500000000005
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4240,
+     "output_tokens": 1193,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00233925
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4146,
+     "output_tokens": 404,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0013342
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2217,
+     "output_tokens": 216,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007134000000000001
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 18604,
+    "output_tokens": 2764,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0071758
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0022",
+   "scenario": "benign_fresh_small",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 22.078,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 4299,
+     "output_tokens": 1009,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00212105
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3859,
+     "output_tokens": 1243,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00232555
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3804,
+     "output_tokens": 367,
+     "cached_input_tokens": 1792,
+     "cost_usd": 0.0008969900000000001
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2175,
+     "output_tokens": 193,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00067625
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 14137,
+    "output_tokens": 2812,
+    "cached_input_tokens": 1792,
+    "cost_usd": 0.00601984
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0023",
+   "scenario": "sanctioned_direct",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 4,
+   "medium_plus_with_evidence": 4,
+   "paused": true,
+   "latency_s": 22.213,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 19,
+     "input_tokens": 19444,
+     "output_tokens": 2058,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0064613
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3611,
+     "output_tokens": 900,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0018472
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3583,
+     "output_tokens": 326,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011241
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2016,
+     "output_tokens": 209,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00066445
+    }
+   },
+   "usage": {
+    "calls": 26,
+    "input_tokens": 28654,
+    "output_tokens": 3493,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.010097050000000002
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0024",
+   "scenario": "drainer_report",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 24.033,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 15,
+     "input_tokens": 17088,
+     "output_tokens": 2140,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0060926
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4101,
+     "output_tokens": 1199,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00231895
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4107,
+     "output_tokens": 298,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011939000000000001
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2259,
+     "output_tokens": 253,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007680499999999999
+    }
+   },
+   "usage": {
+    "calls": 22,
+    "input_tokens": 27555,
+    "output_tokens": 3890,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0103735
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0025",
+   "scenario": "address_poisoning",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 4,
+   "medium_plus_with_evidence": 4,
+   "paused": true,
+   "latency_s": 27.847,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 16,
+     "input_tokens": 20762,
+     "output_tokens": 2353,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00709365
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4354,
+     "output_tokens": 1490,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027333
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4443,
+     "output_tokens": 305,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0012698499999999999
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2483,
+     "output_tokens": 222,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007741
+    }
+   },
+   "usage": {
+    "calls": 23,
+    "input_tokens": 32042,
+    "output_tokens": 4370,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0118709
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0026",
+   "scenario": "sanctioned_one_hop",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 21.854,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 4584,
+     "output_tokens": 942,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0020943
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3936,
+     "output_tokens": 1476,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0026321999999999995
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3868,
+     "output_tokens": 360,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0012236
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2116,
+     "output_tokens": 210,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006857
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 14504,
+    "output_tokens": 2988,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0066358
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0027",
+   "scenario": "fresh_large_inflow",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 58,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": false,
+   "latency_s": 22.525,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 7873,
+     "output_tokens": 1022,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0028520999999999998
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4070,
+     "output_tokens": 1463,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00264275
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4022,
+     "output_tokens": 374,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0012719
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2363,
+     "output_tokens": 215,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00074135
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 18328,
+    "output_tokens": 3074,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0075081
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0028",
+   "scenario": "nonblocking_scam_report",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 15.681,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 6,
+     "input_tokens": 4078,
+     "output_tokens": 580,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0015405999999999998
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 1796,
+     "output_tokens": 1033,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00165045
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1800,
+     "output_tokens": 290,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007225
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1802,
+     "output_tokens": 196,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006054
+    }
+   },
+   "usage": {
+    "calls": 13,
+    "input_tokens": 9476,
+    "output_tokens": 2099,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00451895
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0029",
+   "scenario": "mixer_exposure",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 29.615,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 18,
+     "input_tokens": 24359,
+     "output_tokens": 2501,
+     "cached_input_tokens": 4096,
+     "cost_usd": 0.00726077
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4417,
+     "output_tokens": 1470,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027209
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4366,
+     "output_tokens": 339,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00129695
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2301,
+     "output_tokens": 205,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00071645
+    }
+   },
+   "usage": {
+    "calls": 25,
+    "input_tokens": 35443,
+    "output_tokens": 4515,
+    "cached_input_tokens": 4096,
+    "cost_usd": 0.01199507
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0030",
+   "scenario": "peel_chain",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 58,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": false,
+   "latency_s": 30.289,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 6188,
+     "output_tokens": 1540,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0031626000000000007
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4419,
+     "output_tokens": 1829,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0031700499999999998
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4284,
+     "output_tokens": 421,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0013830500000000003
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 3775,
+     "output_tokens": 286,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011125
+    }
+   },
+   "usage": {
+    "calls": 16,
+    "input_tokens": 18666,
+    "output_tokens": 4076,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.008828200000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0031",
+   "scenario": "benign_eoa",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 21.274,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 11,
+     "input_tokens": 11095,
+     "output_tokens": 1963,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00467275
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3455,
+     "output_tokens": 878,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0017885000000000002
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3497,
+     "output_tokens": 290,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0010619000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2004,
+     "output_tokens": 190,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006383
+    }
+   },
+   "usage": {
+    "calls": 18,
+    "input_tokens": 20051,
+    "output_tokens": 3321,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00816145
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0032",
+   "scenario": "benign_contract",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 27,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 22.295,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 9486,
+     "output_tokens": 945,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00307845
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5479,
+     "output_tokens": 1258,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0026683
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5346,
+     "output_tokens": 433,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00161045
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2173,
+     "output_tokens": 195,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006783500000000001
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 22484,
+    "output_tokens": 2831,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00803555
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0033",
+   "scenario": "benign_fresh_small",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 29.466,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 18,
+     "input_tokens": 21765,
+     "output_tokens": 2464,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.007433
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5093,
+     "output_tokens": 1466,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0028511000000000005
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4951,
+     "output_tokens": 448,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0015501999999999998
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2150,
+     "output_tokens": 215,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00069875
+    }
+   },
+   "usage": {
+    "calls": 25,
+    "input_tokens": 33959,
+    "output_tokens": 4593,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.012533049999999999
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0034",
+   "scenario": "sanctioned_direct",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 9.638,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 4621,
+     "output_tokens": 920,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0020742
+    },
+    "critic": {
+     "calls": 1,
+     "input_tokens": 1836,
+     "output_tokens": 23,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00039595000000000006
+    },
+    "scorer": {
+     "calls": 1,
+     "input_tokens": 1865,
+     "output_tokens": 121,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00052425
+    },
+    "supervisor": {
+     "calls": 2,
+     "input_tokens": 1091,
+     "output_tokens": 114,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00036070000000000004
+    }
+   },
+   "usage": {
+    "calls": 11,
+    "input_tokens": 9413,
+    "output_tokens": 1178,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0033550999999999997
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0035",
+   "scenario": "drainer_report",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 4,
+   "medium_plus_with_evidence": 4,
+   "paused": true,
+   "latency_s": 27.538,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 14,
+     "input_tokens": 14767,
+     "output_tokens": 2581,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00617965
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4461,
+     "output_tokens": 907,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0020259500000000003
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4464,
+     "output_tokens": 298,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0012653
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 3597,
+     "output_tokens": 308,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011044000000000002
+    }
+   },
+   "usage": {
+    "calls": 22,
+    "input_tokens": 27289,
+    "output_tokens": 4094,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.010575300000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0036",
+   "scenario": "address_poisoning",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 85,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 27.172,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 10,
+     "input_tokens": 10250,
+     "output_tokens": 1991,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00453875
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4187,
+     "output_tokens": 1270,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0024249
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4245,
+     "output_tokens": 341,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00127525
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 3793,
+     "output_tokens": 261,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00108485
+    }
+   },
+   "usage": {
+    "calls": 18,
+    "input_tokens": 22475,
+    "output_tokens": 3863,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.009323749999999999
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0037",
+   "scenario": "sanctioned_one_hop",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 24.697,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 8932,
+     "output_tokens": 1073,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00312765
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5379,
+     "output_tokens": 1295,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0026945500000000004
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5288,
+     "output_tokens": 381,
+     "cached_input_tokens": 1792,
+     "cost_usd": 0.00121129
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2116,
+     "output_tokens": 218,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006957
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 21715,
+    "output_tokens": 2967,
+    "cached_input_tokens": 1792,
+    "cost_usd": 0.00772919
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0038",
+   "scenario": "fresh_large_inflow",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 58,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 21.128,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 7497,
+     "output_tokens": 952,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0026894
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4002,
+     "output_tokens": 1340,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0024754
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3966,
+     "output_tokens": 364,
+     "cached_input_tokens": 1792,
+     "cost_usd": 0.00092564
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2185,
+     "output_tokens": 181,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00066325
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 17650,
+    "output_tokens": 2837,
+    "cached_input_tokens": 1792,
+    "cost_usd": 0.0067536900000000006
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0039",
+   "scenario": "nonblocking_scam_report",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 60,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 24.893,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 17,
+     "input_tokens": 18253,
+     "output_tokens": 2084,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0062556
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3775,
+     "output_tokens": 1297,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00237625
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3755,
+     "output_tokens": 301,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00112725
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2176,
+     "output_tokens": 208,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006952
+    }
+   },
+   "usage": {
+    "calls": 24,
+    "input_tokens": 27959,
+    "output_tokens": 3890,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0104543
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0040",
+   "scenario": "mixer_exposure",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 15.582,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 4563,
+     "output_tokens": 702,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0017901000000000002
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 2026,
+     "output_tokens": 874,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0014976999999999998
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1972,
+     "output_tokens": 346,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0008269000000000001
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1958,
+     "output_tokens": 167,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00060035
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 10519,
+    "output_tokens": 2089,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00471505
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0041",
+   "scenario": "peel_chain",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 58,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": false,
+   "latency_s": 25.639,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 11,
+     "input_tokens": 12420,
+     "output_tokens": 1941,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00491025
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4124,
+     "output_tokens": 1251,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0023885499999999997
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4037,
+     "output_tokens": 376,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0012774
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2214,
+     "output_tokens": 238,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007403
+    }
+   },
+   "usage": {
+    "calls": 18,
+    "input_tokens": 22795,
+    "output_tokens": 3806,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0093165
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0042",
+   "scenario": "benign_eoa",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 25.02,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 10,
+     "input_tokens": 17592,
+     "output_tokens": 1112,
+     "cached_input_tokens": 1536,
+     "cost_usd": 0.00463192
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5056,
+     "output_tokens": 1615,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00302995
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5072,
+     "output_tokens": 318,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0014119000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2160,
+     "output_tokens": 212,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.000697
+    }
+   },
+   "usage": {
+    "calls": 17,
+    "input_tokens": 29880,
+    "output_tokens": 3257,
+    "cached_input_tokens": 1536,
+    "cost_usd": 0.009770769999999998
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0043",
+   "scenario": "benign_contract",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 21.099,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 5016,
+     "output_tokens": 877,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00209945
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3755,
+     "output_tokens": 1411,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00251475
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3702,
+     "output_tokens": 359,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00118915
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2111,
+     "output_tokens": 198,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006697
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 14584,
+    "output_tokens": 2845,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.006473049999999998
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0044",
+   "scenario": "benign_fresh_small",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 21.403,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 7092,
+     "output_tokens": 1058,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027409
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4076,
+     "output_tokens": 1105,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00219645
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4006,
+     "output_tokens": 378,
+     "cached_input_tokens": 1792,
+     "cost_usd": 0.0009511400000000001
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2235,
+     "output_tokens": 186,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006795
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 17409,
+    "output_tokens": 2727,
+    "cached_input_tokens": 1792,
+    "cost_usd": 0.006567989999999999
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0045",
+   "scenario": "sanctioned_direct",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 21.214,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 4484,
+     "output_tokens": 745,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00182805
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3332,
+     "output_tokens": 1642,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027189
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3340,
+     "output_tokens": 286,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0010255
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1913,
+     "output_tokens": 181,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00060885
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 13069,
+    "output_tokens": 2854,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0061813
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0046",
+   "scenario": "drainer_report",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 18.137,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 5220,
+     "output_tokens": 920,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.002194
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3681,
+     "output_tokens": 981,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00196245
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3702,
+     "output_tokens": 279,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00108915
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2119,
+     "output_tokens": 178,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006463
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 14722,
+    "output_tokens": 2358,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.005891899999999999
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0047",
+   "scenario": "address_poisoning",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 85,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 26.937,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 11,
+     "input_tokens": 14767,
+     "output_tokens": 2148,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0056384
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5041,
+     "output_tokens": 1165,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0024644500000000004
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5117,
+     "output_tokens": 312,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0014134
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2593,
+     "output_tokens": 209,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00077985
+    }
+   },
+   "usage": {
+    "calls": 18,
+    "input_tokens": 27518,
+    "output_tokens": 3834,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0102961
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0048",
+   "scenario": "sanctioned_one_hop",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 18,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 15.978,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 6,
+     "input_tokens": 3768,
+     "output_tokens": 599,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0015023500000000002
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 1862,
+     "output_tokens": 856,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0014424
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1834,
+     "output_tokens": 314,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007593
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1826,
+     "output_tokens": 168,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0005752
+    }
+   },
+   "usage": {
+    "calls": 13,
+    "input_tokens": 9290,
+    "output_tokens": 1937,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00427925
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0049",
+   "scenario": "fresh_large_inflow",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 25.867,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 17,
+     "input_tokens": 23862,
+     "output_tokens": 2047,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.007331150000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4676,
+     "output_tokens": 1257,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0025064499999999995
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4586,
+     "output_tokens": 419,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00144095
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2190,
+     "output_tokens": 218,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007105
+    }
+   },
+   "usage": {
+    "calls": 24,
+    "input_tokens": 35314,
+    "output_tokens": 3941,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.01198905
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0050",
+   "scenario": "nonblocking_scam_report",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 58,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": false,
+   "latency_s": 29.859,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 14,
+     "input_tokens": 18261,
+     "output_tokens": 2403,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.006655950000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5120,
+     "output_tokens": 1519,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00292275
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4972,
+     "output_tokens": 434,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0015369000000000001
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2203,
+     "output_tokens": 208,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007006
+    }
+   },
+   "usage": {
+    "calls": 21,
+    "input_tokens": 30556,
+    "output_tokens": 4564,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.011816199999999999
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0051",
+   "scenario": "mixer_exposure",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 18,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 16.935,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 6,
+     "input_tokens": 3795,
+     "output_tokens": 600,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.001509
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 1881,
+     "output_tokens": 1019,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0016499499999999999
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1840,
+     "output_tokens": 329,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00077925
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1850,
+     "output_tokens": 174,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0005875
+    }
+   },
+   "usage": {
+    "calls": 13,
+    "input_tokens": 9366,
+    "output_tokens": 2122,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0045257
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0052",
+   "scenario": "benign_eoa",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 58,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 20.333,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 8409,
+     "output_tokens": 916,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0028268
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3794,
+     "output_tokens": 1133,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0021750499999999996
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3784,
+     "output_tokens": 346,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011893000000000003
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2082,
+     "output_tokens": 218,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006889000000000001
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 18069,
+    "output_tokens": 2613,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00688005
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0053",
+   "scenario": "benign_contract",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 18,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 28.009,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 13,
+     "input_tokens": 13324,
+     "output_tokens": 1851,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00497855
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3296,
+     "output_tokens": 1149,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00209545
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3288,
+     "output_tokens": 318,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0010551
+    },
+    "supervisor": {
+     "calls": 5,
+     "input_tokens": 4076,
+     "output_tokens": 382,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0012927
+    }
+   },
+   "usage": {
+    "calls": 22,
+    "input_tokens": 23984,
+    "output_tokens": 3700,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.009421800000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0054",
+   "scenario": "sanctioned_direct",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 14,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 24.972,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 16,
+     "input_tokens": 23710,
+     "output_tokens": 2055,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00731075
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4914,
+     "output_tokens": 1135,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00240155
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4912,
+     "output_tokens": 304,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0013624000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1993,
+     "output_tokens": 196,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006436
+    }
+   },
+   "usage": {
+    "calls": 23,
+    "input_tokens": 35529,
+    "output_tokens": 3690,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0117183
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0055",
+   "scenario": "drainer_report",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 14,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 27.652,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 17,
+     "input_tokens": 26422,
+     "output_tokens": 2266,
+     "cached_input_tokens": 3584,
+     "cost_usd": 0.007471780000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5279,
+     "output_tokens": 1298,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0026783
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5287,
+     "output_tokens": 286,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0014149000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2134,
+     "output_tokens": 238,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007243
+    }
+   },
+   "usage": {
+    "calls": 24,
+    "input_tokens": 39122,
+    "output_tokens": 4088,
+    "cached_input_tokens": 3584,
+    "cost_usd": 0.012289280000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0056",
+   "scenario": "address_poisoning",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 85,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 20.41,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 5482,
+     "output_tokens": 1066,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0024289
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4320,
+     "output_tokens": 1119,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00226275
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4388,
+     "output_tokens": 328,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0012875999999999999
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2423,
+     "output_tokens": 217,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00075585
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 16613,
+    "output_tokens": 2730,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0067351
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0057",
+   "scenario": "sanctioned_one_hop",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 28.334,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 19,
+     "input_tokens": 26228,
+     "output_tokens": 2468,
+     "cached_input_tokens": 3072,
+     "cost_usd": 0.00777764
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4423,
+     "output_tokens": 1462,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027121000000000003
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4331,
+     "output_tokens": 384,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0013462
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2101,
+     "output_tokens": 198,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006677
+    }
+   },
+   "usage": {
+    "calls": 26,
+    "input_tokens": 37083,
+    "output_tokens": 4512,
+    "cached_input_tokens": 3072,
+    "cost_usd": 0.01250364
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0058",
+   "scenario": "fresh_large_inflow",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 27.111,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 10,
+     "input_tokens": 8464,
+     "output_tokens": 1813,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0039590499999999995
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3935,
+     "output_tokens": 1301,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00241325
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3916,
+     "output_tokens": 335,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00120195
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 3358,
+     "output_tokens": 287,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00103035
+    }
+   },
+   "usage": {
+    "calls": 18,
+    "input_tokens": 19673,
+    "output_tokens": 3736,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.008604599999999999
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0059",
+   "scenario": "benign_eoa",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 20.439,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 8451,
+     "output_tokens": 918,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0028377000000000003
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3782,
+     "output_tokens": 1200,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0022564
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3774,
+     "output_tokens": 348,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011898000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2136,
+     "output_tokens": 191,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00066595
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 18143,
+    "output_tokens": 2657,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0069498500000000005
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0060",
+   "scenario": "sanctioned_direct",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 20.582,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 10,
+     "input_tokens": 7400,
+     "output_tokens": 1301,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0031062500000000005
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3717,
+     "output_tokens": 976,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0019634
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3722,
+     "output_tokens": 303,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00112315
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 2989,
+     "output_tokens": 293,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0009640499999999999
+    }
+   },
+   "usage": {
+    "calls": 18,
+    "input_tokens": 17828,
+    "output_tokens": 2873,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.007156850000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0061",
+   "scenario": "drainer_report",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 27.328,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 13,
+     "input_tokens": 17978,
+     "output_tokens": 2174,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0063130999999999994
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5478,
+     "output_tokens": 1340,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027706
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5481,
+     "output_tokens": 297,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0014674500000000001
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2252,
+     "output_tokens": 212,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007154000000000002
+    }
+   },
+   "usage": {
+    "calls": 20,
+    "input_tokens": 31189,
+    "output_tokens": 4023,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.011266549999999998
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0062",
+   "scenario": "address_poisoning",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 85,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 27.277,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 12,
+     "input_tokens": 15666,
+     "output_tokens": 1946,
+     "cached_input_tokens": 1536,
+     "cost_usd": 0.005289220000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4283,
+     "output_tokens": 1099,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0022303500000000003
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 4297,
+     "output_tokens": 380,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0013344
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 3624,
+     "output_tokens": 307,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011085500000000002
+    }
+   },
+   "usage": {
+    "calls": 20,
+    "input_tokens": 27870,
+    "output_tokens": 3732,
+    "cached_input_tokens": 1536,
+    "cost_usd": 0.00996252
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0063",
+   "scenario": "fresh_large_inflow",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 22.234,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 6637,
+     "output_tokens": 961,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00252865
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 1850,
+     "output_tokens": 895,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00148875
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1867,
+     "output_tokens": 305,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007546499999999999
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 2751,
+     "output_tokens": 232,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0008402000000000001
+    }
+   },
+   "usage": {
+    "calls": 16,
+    "input_tokens": 13105,
+    "output_tokens": 2393,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.005612250000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0064",
+   "scenario": "benign_eoa",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 22.332,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 8215,
+     "output_tokens": 973,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00285925
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3687,
+     "output_tokens": 1337,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00240865
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3666,
+     "output_tokens": 355,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00117695
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2218,
+     "output_tokens": 163,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00064735
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 17786,
+    "output_tokens": 2828,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0070922
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0065",
+   "scenario": "sanctioned_direct",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 18.368,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 4697,
+     "output_tokens": 939,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0021131500000000003
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3648,
+     "output_tokens": 939,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0019033499999999998
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3674,
+     "output_tokens": 282,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0010873000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2070,
+     "output_tokens": 168,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006240000000000001
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 14089,
+    "output_tokens": 2328,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0057278
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0066",
+   "scenario": "drainer_report",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 90,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 4,
+   "medium_plus_with_evidence": 4,
+   "paused": true,
+   "latency_s": 27.312,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 14,
+     "input_tokens": 20126,
+     "output_tokens": 1972,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0064902
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5576,
+     "output_tokens": 1385,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0028464500000000004
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5616,
+     "output_tokens": 258,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0014457
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 3693,
+     "output_tokens": 286,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0010961
+    }
+   },
+   "usage": {
+    "calls": 22,
+    "input_tokens": 35011,
+    "output_tokens": 3901,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.011878449999999999
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0067",
+   "scenario": "address_poisoning",
+   "label_source": "synthetic",
+   "expected_action": "block",
+   "min_risk_level": "high",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "block",
+   "risk_level": "high",
+   "score": 85,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 4,
+   "medium_plus_with_evidence": 4,
+   "paused": true,
+   "latency_s": 21.623,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 12,
+     "input_tokens": 11375,
+     "output_tokens": 1515,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.004168750000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3246,
+     "output_tokens": 1149,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00208545
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3333,
+     "output_tokens": 299,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00104035
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 3493,
+     "output_tokens": 245,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00100485
+    }
+   },
+   "usage": {
+    "calls": 20,
+    "input_tokens": 21447,
+    "output_tokens": 3208,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0082994
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0068",
+   "scenario": "fresh_large_inflow",
+   "label_source": "synthetic",
+   "expected_action": "hold_for_review",
+   "min_risk_level": "medium",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 18.112,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 6,
+     "input_tokens": 3937,
+     "output_tokens": 586,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0015199
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 1882,
+     "output_tokens": 1160,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0018264000000000002
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1850,
+     "output_tokens": 360,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00082
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1893,
+     "output_tokens": 166,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0005861
+    }
+   },
+   "usage": {
+    "calls": 13,
+    "input_tokens": 9562,
+    "output_tokens": 2272,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0047524
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0069",
+   "scenario": "benign_eoa",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 18,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 15.554,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 6,
+     "input_tokens": 5019,
+     "output_tokens": 624,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0017837999999999999
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 1919,
+     "output_tokens": 988,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0016188
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1932,
+     "output_tokens": 319,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007851500000000001
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1993,
+     "output_tokens": 177,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006198499999999999
+    }
+   },
+   "usage": {
+    "calls": 13,
+    "input_tokens": 10863,
+    "output_tokens": 2108,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0048076
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0070",
+   "scenario": "benign_eoa",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 58,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 24.936,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 14,
+     "input_tokens": 15537,
+     "output_tokens": 2050,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0056699
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 4062,
+     "output_tokens": 1249,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0023736499999999997
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3973,
+     "output_tokens": 426,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0013271
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2154,
+     "output_tokens": 206,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006883000000000001
+    }
+   },
+   "usage": {
+    "calls": 21,
+    "input_tokens": 25726,
+    "output_tokens": 3931,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.010058949999999997
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0071",
+   "scenario": "benign_eoa",
+   "label_source": "synthetic",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "synthetic"
+   ],
+   "predicted_action": "hold_for_review",
+   "risk_level": "medium",
+   "score": 62,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": true,
+   "latency_s": 23.908,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 14,
+     "input_tokens": 14948,
+     "output_tokens": 2141,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00566585
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3917,
+     "output_tokens": 1269,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00236965
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3849,
+     "output_tokens": 402,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0012723
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2187,
+     "output_tokens": 212,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007023999999999999
+    }
+   },
+   "usage": {
+    "calls": 21,
+    "input_tokens": 24901,
+    "output_tokens": 4024,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0100102
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0072",
+   "scenario": "ofac_listed",
+   "label_source": "ofac",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 26.464,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 17,
+     "input_tokens": 33685,
+     "output_tokens": 1991,
+     "cached_input_tokens": 7168,
+     "cost_usd": 0.00793551
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3746,
+     "output_tokens": 1106,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0021317000000000003
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3750,
+     "output_tokens": 292,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.001115
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2124,
+     "output_tokens": 224,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007048
+    }
+   },
+   "usage": {
+    "calls": 24,
+    "input_tokens": 43305,
+    "output_tokens": 3613,
+    "cached_input_tokens": 7168,
+    "cost_usd": 0.01188701
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0073",
+   "scenario": "ofac_listed",
+   "label_source": "ofac",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": null,
+   "risk_level": null,
+   "score": null,
+   "findings": 0,
+   "evidence": 0,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 17.143,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 12,
+     "input_tokens": 21468,
+     "output_tokens": 1971,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00675735
+    },
+    "critic": {
+     "calls": 1,
+     "input_tokens": 1031,
+     "output_tokens": 540,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0008812000000000001
+    },
+    "scorer": {
+     "calls": 1,
+     "input_tokens": 1043,
+     "output_tokens": 137,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00037985000000000004
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2090,
+     "output_tokens": 196,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006630000000000001
+    }
+   },
+   "usage": {
+    "calls": 17,
+    "input_tokens": 25632,
+    "output_tokens": 2844,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0086814
+   },
+   "unrecorded_lookups": [],
+   "error": "ValidationError: 1 validation error for SpecialistAssessment\n  Input should be a valid dictionary or instance of SpecialistAssessment [type=model_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.14/v/model_type"
+  },
+  {
+   "case_id": "ev-0074",
+   "scenario": "ofac_listed",
+   "label_source": "ofac",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 18.464,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 7395,
+     "output_tokens": 915,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00262275
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 2801,
+     "output_tokens": 985,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00179145
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 2793,
+     "output_tokens": 310,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0009461000000000001
+    },
+    "supervisor": {
+     "calls": 4,
+     "input_tokens": 2963,
+     "output_tokens": 256,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0009126
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 15952,
+    "output_tokens": 2466,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0062729
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0075",
+   "scenario": "ofac_listed",
+   "label_source": "ofac",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 21.078,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 9,
+     "input_tokens": 14304,
+     "output_tokens": 1017,
+     "cached_input_tokens": 1536,
+     "cost_usd": 0.00385557
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5191,
+     "output_tokens": 1152,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0024782
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5186,
+     "output_tokens": 303,
+     "cached_input_tokens": 1792,
+     "cost_usd": 0.00109339
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2168,
+     "output_tokens": 182,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006611
+    }
+   },
+   "usage": {
+    "calls": 16,
+    "input_tokens": 26849,
+    "output_tokens": 2654,
+    "cached_input_tokens": 3328,
+    "cost_usd": 0.00808826
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0076",
+   "scenario": "ofac_listed",
+   "label_source": "ofac",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 1,
+   "medium_plus_with_evidence": 1,
+   "paused": true,
+   "latency_s": 17.267,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 6,
+     "input_tokens": 6623,
+     "output_tokens": 645,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00213085
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 1992,
+     "output_tokens": 1240,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0019483999999999999
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1990,
+     "output_tokens": 306,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0007804999999999999
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1933,
+     "output_tokens": 172,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006016000000000001
+    }
+   },
+   "usage": {
+    "calls": 13,
+    "input_tokens": 12538,
+    "output_tokens": 2363,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.005461349999999999
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0077",
+   "scenario": "ofac_listed",
+   "label_source": "ofac",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 18.282,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 6685,
+     "output_tokens": 861,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00241325
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3671,
+     "output_tokens": 829,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00177045
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3634,
+     "output_tokens": 339,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011505500000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2030,
+     "output_tokens": 191,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00064475
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 16020,
+    "output_tokens": 2220,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.005979000000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0078",
+   "scenario": "ofac_listed",
+   "label_source": "ofac",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 1,
+   "medium_plus_with_evidence": 1,
+   "paused": true,
+   "latency_s": 17.251,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 6,
+     "input_tokens": 6525,
+     "output_tokens": 639,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00210375
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 1931,
+     "output_tokens": 1162,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0018387
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 1946,
+     "output_tokens": 285,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00074545
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1938,
+     "output_tokens": 163,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00059135
+    }
+   },
+   "usage": {
+    "calls": 13,
+    "input_tokens": 12340,
+    "output_tokens": 2249,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00527925
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0079",
+   "scenario": "ofac_listed",
+   "label_source": "ofac",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 18.612,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 5133,
+     "output_tokens": 834,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0020691000000000004
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3443,
+     "output_tokens": 1102,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0020661
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3426,
+     "output_tokens": 311,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0010739500000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2001,
+     "output_tokens": 196,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006452000000000001
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 14003,
+    "output_tokens": 2443,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00585435
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0080",
+   "scenario": "ofac_listed",
+   "label_source": "ofac",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 3,
+   "medium_plus_with_evidence": 3,
+   "paused": true,
+   "latency_s": 16.474,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 11,
+     "input_tokens": 13970,
+     "output_tokens": 1322,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.004446500000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 2687,
+     "output_tokens": 613,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00130365
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 2694,
+     "output_tokens": 287,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00089755
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1946,
+     "output_tokens": 175,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006079500000000001
+    }
+   },
+   "usage": {
+    "calls": 18,
+    "input_tokens": 21297,
+    "output_tokens": 2397,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.0072556500000000015
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0081",
+   "scenario": "ofac_listed",
+   "label_source": "ofac",
+   "expected_action": "block",
+   "min_risk_level": "critical",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "block",
+   "risk_level": "critical",
+   "score": 100,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 2,
+   "medium_plus_with_evidence": 2,
+   "paused": true,
+   "latency_s": 15.949,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 7152,
+     "output_tokens": 861,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00250665
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3512,
+     "output_tokens": 798,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0016999
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3504,
+     "output_tokens": 304,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0010808000000000003
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1990,
+     "output_tokens": 179,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00062175
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 16158,
+    "output_tokens": 2142,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.005909100000000001
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0082",
+   "scenario": "benign_protocol",
+   "label_source": "benign_public",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 21.873,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 7233,
+     "output_tokens": 852,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0025116
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3578,
+     "output_tokens": 1504,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0025956
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3548,
+     "output_tokens": 320,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011095999999999999
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2036,
+     "output_tokens": 201,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006584500000000001
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 16395,
+    "output_tokens": 2877,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.006875249999999999
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0083",
+   "scenario": "benign_protocol",
+   "label_source": "benign_public",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 20.762,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 7,
+     "input_tokens": 7224,
+     "output_tokens": 894,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0025623
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3664,
+     "output_tokens": 1278,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0023303
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3624,
+     "output_tokens": 334,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011423000000000002
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1988,
+     "output_tokens": 187,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006313499999999999
+    }
+   },
+   "usage": {
+    "calls": 14,
+    "input_tokens": 16500,
+    "output_tokens": 2693,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00666625
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0084",
+   "scenario": "benign_protocol",
+   "label_source": "benign_public",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 32,
+   "findings": 4,
+   "evidence": 11,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 22.185,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 8,
+     "input_tokens": 11628,
+     "output_tokens": 1010,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0035881000000000003
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5374,
+     "output_tokens": 1376,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0027948
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5338,
+     "output_tokens": 320,
+     "cached_input_tokens": 1792,
+     "cost_usd": 0.00114504
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2134,
+     "output_tokens": 173,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00064305
+    }
+   },
+   "usage": {
+    "calls": 15,
+    "input_tokens": 24474,
+    "output_tokens": 2879,
+    "cached_input_tokens": 1792,
+    "cost_usd": 0.00817099
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0085",
+   "scenario": "benign_protocol",
+   "label_source": "benign_public",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 22,
+   "findings": 4,
+   "evidence": 8,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 23.727,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 16,
+     "input_tokens": 21116,
+     "output_tokens": 1902,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0066007
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 3778,
+     "output_tokens": 1322,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0024081
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 3745,
+     "output_tokens": 323,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0011527500000000001
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 2060,
+     "output_tokens": 204,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0006670000000000001
+    }
+   },
+   "usage": {
+    "calls": 23,
+    "input_tokens": 30699,
+    "output_tokens": 3751,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.01082855
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0086",
+   "scenario": "benign_protocol",
+   "label_source": "benign_public",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 25,
+   "findings": 3,
+   "evidence": 5,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 9.008,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 6,
+     "input_tokens": 6338,
+     "output_tokens": 680,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0021176000000000003
+    },
+    "critic": {
+     "calls": 1,
+     "input_tokens": 1012,
+     "output_tokens": 23,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00023115
+    },
+    "scorer": {
+     "calls": 1,
+     "input_tokens": 996,
+     "output_tokens": 158,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00039670000000000005
+    },
+    "supervisor": {
+     "calls": 2,
+     "input_tokens": 1140,
+     "output_tokens": 118,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0003755
+    }
+   },
+   "usage": {
+    "calls": 10,
+    "input_tokens": 9486,
+    "output_tokens": 979,
+    "cached_input_tokens": 0,
+    "cost_usd": 0.00312095
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  },
+  {
+   "case_id": "ev-0087",
+   "scenario": "benign_protocol",
+   "label_source": "benign_public",
+   "expected_action": "allow",
+   "min_risk_level": "none",
+   "tags": [
+    "real"
+   ],
+   "predicted_action": "allow",
+   "risk_level": "low",
+   "score": 28,
+   "findings": 4,
+   "evidence": 14,
+   "medium_plus_findings": 0,
+   "medium_plus_with_evidence": 0,
+   "paused": false,
+   "latency_s": 25.619,
+   "usage_by_role": {
+    "specialist": {
+     "calls": 13,
+     "input_tokens": 31455,
+     "output_tokens": 1654,
+     "cached_input_tokens": 3584,
+     "cost_usd": 0.007713380000000001
+    },
+    "critic": {
+     "calls": 2,
+     "input_tokens": 5013,
+     "output_tokens": 1116,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0023976
+    },
+    "scorer": {
+     "calls": 2,
+     "input_tokens": 5004,
+     "output_tokens": 300,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.0013758
+    },
+    "supervisor": {
+     "calls": 3,
+     "input_tokens": 1938,
+     "output_tokens": 219,
+     "cached_input_tokens": 0,
+     "cost_usd": 0.00066135
+    }
+   },
+   "usage": {
+    "calls": 20,
+    "input_tokens": 43410,
+    "output_tokens": 3289,
+    "cached_input_tokens": 3584,
+    "cost_usd": 0.01214813
+   },
+   "unrecorded_lookups": [],
+   "error": null
+  }
+ ]
+}

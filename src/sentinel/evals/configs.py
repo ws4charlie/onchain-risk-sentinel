@@ -102,9 +102,14 @@ def _uniform(
 CONFIGS: dict[str, ModelConfig] = {
     c.name: c
     for c in (
+        _uniform(
+            "default",
+            GEMINI_FLASH_LITE,
+            "Project default (core Settings): all roles on Gemini 3.5 Flash-Lite.",
+        ),
         ModelConfig(
-            name="default",
-            description="Project default: Gemini Flash specialists, GPT-5.4 mini elsewhere.",
+            name="mixed-flash",
+            description="Gemini Flash specialists, GPT-5.4 mini elsewhere (former default).",
             supervisor=GPT_MINI,
             specialist=GEMINI_FLASH,
             scorer=GPT_MINI,
