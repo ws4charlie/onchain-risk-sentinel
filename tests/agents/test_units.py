@@ -40,15 +40,6 @@ def test_rules_sanctions_hit_wins() -> None:
     assert (outcome.rule, outcome.action, outcome.score) == ("sanctions_hit", Action.BLOCK, 100)
 
 
-def test_rules_ignore_non_blocking_scam_categories() -> None:
-    findings = {
-        "scam_intel": _finding(
-            "scam_intel", RiskLevel.MEDIUM, _evidence("scam_report", category="spam")
-        )
-    }
-    assert apply_rules(findings) is None
-
-
 def test_rules_no_findings_holds_for_review() -> None:
     outcome = apply_rules({})
     assert outcome is not None
@@ -196,3 +187,24 @@ def test_json_safe_stringifies_only_out_of_range_ints() -> None:
 def test_rendered_case_states_request_time() -> None:
     case = Case(case_id="c", address=CLEAN, requested_at=datetime(2026, 10, 20, 12, tzinfo=UTC))
     assert "Requested at: 2026-10-20T12:00:00+00:00" in render_case(case)
+
+
+def test_rules_hold_nonblocking_scam_categories() -> None:
+    findings = {
+        "scam_intel": _finding(
+            "scam_intel", RiskLevel.MEDIUM, _evidence("scam_report", category="ponzi")
+        )
+    }
+    outcome = apply_rules(findings)
+    assert outcome is not None
+    assert outcome.rule == "scam_report_review"
+    assert outcome.action is Action.HOLD_FOR_REVIEW and outcome.floor
+
+
+def test_user_notice_for_victim_facing_risks_only() -> None:
+    from sentinel.agents.notices import user_notice
+
+    assert "investment scheme" in (user_notice([_evidence("scam_report", category="ponzi")]) or "")
+    assert "look-alike" in (user_notice([_evidence("lookalike_match")]) or "")
+    assert user_notice([_evidence("scam_report", category="unknown")]) is not None
+    assert user_notice([_evidence("sanctions_hit"), _evidence("counterparty_mixer")]) is None

@@ -1,7 +1,7 @@
 {
  "case_id": "ev-0080",
  "origin": "recorded",
- "recorded_at": "2026-10-25T22:21:06.496646Z",
+ "recorded_at": "2026-10-27T04:15:11.428062Z",
  "sources": {
   "chain_data": "rpc_with_etherscan_fallback",
   "sanctions": "ofac_snapshot",
@@ -21,10 +21,10 @@
    "chain": "ethereum",
    "address": "0xf89d7b9c864f589bbf53a82105107622b35eaa40",
    "is_contract": false,
-   "balance_wei": 10986452821373525455782,
-   "tx_count": 7317434,
+   "balance_wei": 11263594202561794941466,
+   "tx_count": 7319038,
    "first_seen": "2021-08-06T10:12:56Z",
-   "last_seen": "2026-10-25T22:20:11Z"
+   "last_seen": "2026-10-27T04:14:23Z"
   },
   "0xc8d58b1e6d89a721bd8303ca711c0cc5fc8b6653": {
    "chain": "ethereum",
@@ -57,10 +57,145 @@
    "chain": "ethereum",
    "address": "0xc9f5296eb3ac266c94568d790b6e91eba7d76a11",
    "is_contract": false,
-   "balance_wei": 9823790358454815575,
-   "tx_count": 509046,
+   "balance_wei": 9823762113540505668,
+   "tx_count": 509048,
    "first_seen": "2018-12-26T16:19:46Z",
-   "last_seen": "2026-10-23T13:27:47Z"
+   "last_seen": "2026-10-26T13:37:47Z"
+  },
+  "0x32924536b73b46c85e07f3a2437fc00812646b3f": {
+   "chain": "ethereum",
+   "address": "0x32924536b73b46c85e07f3a2437fc00812646b3f",
+   "is_contract": false,
+   "balance_wei": 139604870118000,
+   "tx_count": 1,
+   "first_seen": "2024-01-26T02:23:35Z",
+   "last_seen": "2024-01-26T03:08:59Z"
+  },
+  "0x087821f85ace1580c0225b0f31c2984eefafa99e": {
+   "chain": "ethereum",
+   "address": "0x087821f85ace1580c0225b0f31c2984eefafa99e",
+   "is_contract": false,
+   "balance_wei": 359759640788,
+   "tx_count": 144,
+   "first_seen": "2023-12-22T15:01:23Z",
+   "last_seen": "2026-03-29T16:02:23Z"
+  },
+  "0x2cd6f2d73f8827c83ca8538343d646ebc9af3c16": {
+   "chain": "ethereum",
+   "address": "0x2cd6f2d73f8827c83ca8538343d646ebc9af3c16",
+   "is_contract": false,
+   "balance_wei": 479830714293000,
+   "tx_count": 1,
+   "first_seen": "2023-10-28T20:11:23Z",
+   "last_seen": "2023-10-29T17:07:59Z"
+  },
+  "0x81a88eb2ed8b62748b12c0b3f91307abfd50d1f5": {
+   "chain": "ethereum",
+   "address": "0x81a88eb2ed8b62748b12c0b3f91307abfd50d1f5",
+   "is_contract": false,
+   "balance_wei": 37550899743248039,
+   "tx_count": 1,
+   "first_seen": "2021-04-16T09:02:40Z",
+   "last_seen": "2026-06-20T02:24:11Z"
+  },
+  "0x71b60d85c019bd9a224d2fd953e678ae06e6a819": {
+   "chain": "ethereum",
+   "address": "0x71b60d85c019bd9a224d2fd953e678ae06e6a819",
+   "is_contract": false,
+   "balance_wei": 1459887693570991460,
+   "tx_count": 21599,
+   "first_seen": "2023-03-23T13:11:23Z",
+   "last_seen": "2026-06-19T22:37:23Z"
+  },
+  "0x45300136662dd4e58fc0df61e6290dffd992b785": {
+   "chain": "ethereum",
+   "address": "0x45300136662dd4e58fc0df61e6290dffd992b785",
+   "is_contract": false,
+   "balance_wei": 2571975628622026711708,
+   "tx_count": 599735,
+   "first_seen": "2023-10-17T09:23:47Z",
+   "last_seen": "2026-10-27T04:14:23Z"
+  },
+  "0x57a1a8a029893e76b826b84aa73b2881f8368845": {
+   "chain": "ethereum",
+   "address": "0x57a1a8a029893e76b826b84aa73b2881f8368845",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 1,
+   "first_seen": "2023-10-30T10:09:23Z",
+   "last_seen": "2023-10-30T10:12:59Z"
+  },
+  "0xd0d72fd7e4a4a7c3ebedc32bde30e529edca4d58": {
+   "chain": "ethereum",
+   "address": "0xd0d72fd7e4a4a7c3ebedc32bde30e529edca4d58",
+   "is_contract": false,
+   "balance_wei": 149875936602000,
+   "tx_count": 7,
+   "first_seen": "2023-09-05T18:10:35Z",
+   "last_seen": "2025-09-24T01:07:11Z"
+  },
+  "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88": {
+   "chain": "ethereum",
+   "address": "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88",
+   "is_contract": false,
+   "balance_wei": 10813510283083125409,
+   "tx_count": 8013201,
+   "first_seen": "2018-07-12T10:07:42Z",
+   "last_seen": "2026-10-27T04:04:59Z"
+  },
+  "0xfc13bee872d1e863bb6d89d0e97e9696fb3fa59d": {
+   "chain": "ethereum",
+   "address": "0xfc13bee872d1e863bb6d89d0e97e9696fb3fa59d",
+   "is_contract": false,
+   "balance_wei": 14312686946452597,
+   "tx_count": 12,
+   "first_seen": "2023-08-08T18:59:59Z",
+   "last_seen": "2025-01-31T09:31:59Z"
+  },
+  "0x351d51ff73e84ff9976a90b2e68eced314ef27fc": {
+   "chain": "ethereum",
+   "address": "0x351d51ff73e84ff9976a90b2e68eced314ef27fc",
+   "is_contract": false,
+   "balance_wei": 118577310348000,
+   "tx_count": 1,
+   "first_seen": "2023-10-29T12:01:59Z",
+   "last_seen": "2023-10-29T12:04:11Z"
+  },
+  "0xefd9530a6302a73ac90a18e448a1053fd0ef57fd": {
+   "chain": "ethereum",
+   "address": "0xefd9530a6302a73ac90a18e448a1053fd0ef57fd",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 4,
+   "first_seen": "2023-10-15T11:32:47Z",
+   "last_seen": "2023-10-31T14:26:23Z"
+  },
+  "0x6c50632c1292531fe37d648d74aae12036aa215f": {
+   "chain": "ethereum",
+   "address": "0x6c50632c1292531fe37d648d74aae12036aa215f",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 5,
+   "first_seen": "2023-10-25T23:25:47Z",
+   "last_seen": "2023-11-19T20:06:59Z"
+  },
+  "0x1651d700cd4020334bd185ba4c6e0271ffc0c732": {
+   "chain": "ethereum",
+   "address": "0x1651d700cd4020334bd185ba4c6e0271ffc0c732",
+   "is_contract": false,
+   "balance_wei": 22890524721055765,
+   "tx_count": 33598,
+   "first_seen": "2023-11-30T18:10:11Z",
+   "last_seen": "2026-03-29T10:53:59Z"
+  },
+  "0x58b704065b7aff3ed351052f8560019e05925023": {
+   "chain": "ethereum",
+   "address": "0x58b704065b7aff3ed351052f8560019e05925023",
+   "is_contract": false,
+   "balance_wei": 42446393845484649756,
+   "tx_count": 1357200,
+   "first_seen": "2023-02-06T11:06:59Z",
+   "last_seen": "2026-10-27T04:14:11Z"
   }
  },
  "transfers": {

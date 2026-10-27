@@ -26,6 +26,7 @@ from collections.abc import Sequence
 from datetime import UTC, datetime
 from pathlib import Path
 
+from sentinel.agents.screening import MAX_PROFILE_LOOKUPS, TOP_COUNTERPARTIES, counterparties
 from sentinel.core.config import Settings
 from sentinel.core.ports import ChainDataSource, SanctionsSource, ScamIntelSource
 from sentinel.core.schemas import Chain, ScamReport
@@ -73,7 +74,13 @@ async def record_case(
     )
     addresses = [address, *peers]
     profiles = {address: profile}
-    for peer, _ in peers.most_common(counterparty_profiles):
+    # Profile the most frequent peers and the ones counterparty screening will rank first
+    # (by value), so replays never miss a lookup the agents make.
+    _, by_value = counterparties(address, transfers)
+    wanted = [p for p, _ in peers.most_common(counterparty_profiles)]
+    ranked = by_value[: max(TOP_COUNTERPARTIES, MAX_PROFILE_LOOKUPS)]
+    wanted += [c.address for c in ranked if c.address not in wanted]
+    for peer in wanted:
         try:
             profiles[peer] = await chain.get_address_profile(Chain.ETHEREUM, peer)
         except Exception as exc:  # a missing counterparty profile is recorded as a miss

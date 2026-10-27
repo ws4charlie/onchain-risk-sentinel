@@ -145,3 +145,13 @@ different: the steps are known up front and the same for every item. There a
 planner writes one plan, an executor runs it over the batch with no LLM per step,
 and the model is only consulted to re-plan on exceptions. That is cheaper and more
 predictable; the evals in wave 2 compare both on the same dataset.
+
+## User notices
+
+When the evidence shows fraud aimed at the user (a scam report on the destination, or a
+look-alike of an address the account used before), the verdict carries a `user_notice`:
+a fixed-template warning for the person withdrawing (`notices.py`). Non-blocking scam
+categories (ponzi, honeypot, fake token, ...) hold for review and warn, instead of
+blocking: the user is most likely the victim. There is never a notice for sanctions,
+mixers or other AML signals, because telling a customer about an AML suspicion
+("tipping off") is not allowed.

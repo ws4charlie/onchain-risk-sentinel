@@ -264,6 +264,8 @@ def render_verdict(thread_id: str, verdict: Verdict) -> str:
         ("Reviewed by", verdict.reviewed_by or "-"),
         ("Summary", verdict.summary),
     ]
+    if verdict.user_notice:
+        rows.append(("User notice", verdict.user_notice))
     lines = [f"{label:<12} {value}" for label, value in rows]
     if verdict.findings:
         header = ("Agent", "Signal", "Conf", "Evidence", "Rationale")

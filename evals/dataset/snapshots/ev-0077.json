@@ -1,7 +1,7 @@
 {
  "case_id": "ev-0077",
  "origin": "recorded",
- "recorded_at": "2026-10-25T22:20:47.492285Z",
+ "recorded_at": "2026-10-27T04:14:22.898905Z",
  "sources": {
   "chain_data": "rpc_with_etherscan_fallback",
   "sanctions": "ofac_snapshot",

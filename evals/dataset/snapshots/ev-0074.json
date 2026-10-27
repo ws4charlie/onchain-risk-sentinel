@@ -1,7 +1,7 @@
 {
  "case_id": "ev-0074",
  "origin": "recorded",
- "recorded_at": "2026-10-25T22:20:37.626588Z",
+ "recorded_at": "2026-10-27T04:13:56.602418Z",
  "sources": {
   "chain_data": "rpc_with_etherscan_fallback",
   "sanctions": "ofac_snapshot",
@@ -24,7 +24,7 @@
    "balance_wei": 0,
    "tx_count": 1,
    "first_seen": "2020-10-12T18:56:20Z",
-   "last_seen": "2026-10-25T22:20:23Z",
+   "last_seen": "2026-10-27T04:13:35Z",
    "labels": [
     "contract:Spender"
    ]
@@ -36,7 +36,7 @@
    "balance_wei": 42,
    "tx_count": 1,
    "first_seen": "2017-11-28T01:11:57Z",
-   "last_seen": "2026-10-25T22:20:23Z",
+   "last_seen": "2026-10-27T04:13:35Z",
    "labels": [
     "contract:TetherToken"
    ]
@@ -45,10 +45,10 @@
    "chain": "ethereum",
    "address": "0x264bd8291fae1d75db2c5f573b07faa6715997b5",
    "is_contract": false,
-   "balance_wei": 5284927388488310172119,
-   "tx_count": 6304805,
+   "balance_wei": 5377231462475131257368,
+   "tx_count": 6312280,
    "first_seen": "2023-06-22T14:50:59Z",
-   "last_seen": "2026-10-25T22:20:23Z"
+   "last_seen": "2026-10-27T04:13:35Z"
   },
   "0x881d40237659c251811cec9c364ef91dc08d300c": {
    "chain": "ethereum",
@@ -57,7 +57,7 @@
    "balance_wei": 0,
    "tx_count": 2,
    "first_seen": "2020-10-12T16:07:48Z",
-   "last_seen": "2026-10-25T22:20:23Z",
+   "last_seen": "2026-10-27T04:13:35Z",
    "labels": [
     "contract:MetaSwap"
    ]
@@ -70,6 +70,87 @@
    "tx_count": 29,
    "first_seen": "2024-08-21T08:23:23Z",
    "last_seen": "2026-08-10T01:05:35Z"
+  },
+  "0x82b102eede718aafc14fe3c00360799dd74bbab7": {
+   "chain": "ethereum",
+   "address": "0x82b102eede718aafc14fe3c00360799dd74bbab7",
+   "is_contract": false,
+   "balance_wei": 994200405388675,
+   "tx_count": 67,
+   "first_seen": "2025-05-22T11:45:47Z",
+   "last_seen": "2026-09-03T11:49:11Z"
+  },
+  "0x0f5435b9bda6142c4a2eb8f9fd061c677e922767": {
+   "chain": "ethereum",
+   "address": "0x0f5435b9bda6142c4a2eb8f9fd061c677e922767",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 0,
+   "first_seen": "2025-07-11T20:51:23Z",
+   "last_seen": "2025-07-11T20:51:23Z"
+  },
+  "0x0f587232cb41a1add6f8ed723c126338b6262767": {
+   "chain": "ethereum",
+   "address": "0x0f587232cb41a1add6f8ed723c126338b6262767",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 0,
+   "first_seen": "2025-07-11T20:21:11Z",
+   "last_seen": "2025-07-11T20:21:11Z"
+  },
+  "0x0f58da01f8b79f8d6e0c0ccfa5ab834264922767": {
+   "chain": "ethereum",
+   "address": "0x0f58da01f8b79f8d6e0c0ccfa5ab834264922767",
+   "is_contract": false,
+   "balance_wei": 41937925589110257,
+   "tx_count": 25,
+   "first_seen": "2023-05-29T11:28:11Z",
+   "last_seen": "2026-01-09T04:23:35Z"
+  },
+  "0x4ff00c1f0268038e052b991efcaa1059eb097e13": {
+   "chain": "ethereum",
+   "address": "0x4ff00c1f0268038e052b991efcaa1059eb097e13",
+   "is_contract": false,
+   "balance_wei": 26200817874350,
+   "tx_count": 9,
+   "first_seen": "2024-04-30T19:34:35Z",
+   "last_seen": "2026-07-15T18:34:35Z"
+  },
+  "0x680dff38770eb1fde507c2a8557c10ca47456052": {
+   "chain": "ethereum",
+   "address": "0x680dff38770eb1fde507c2a8557c10ca47456052",
+   "is_contract": false,
+   "balance_wei": 1005292241009401,
+   "tx_count": 30,
+   "first_seen": "2025-04-09T13:18:11Z",
+   "last_seen": "2026-10-23T09:09:47Z"
+  },
+  "0x3f1f0eda27623a9b54ea81500070edec61fbece1": {
+   "chain": "ethereum",
+   "address": "0x3f1f0eda27623a9b54ea81500070edec61fbece1",
+   "is_contract": false,
+   "balance_wei": 13793395000000000,
+   "tx_count": 1,
+   "first_seen": "2025-04-08T16:59:47Z",
+   "last_seen": "2025-07-31T13:06:23Z"
+  },
+  "0x5126ec5e2d103295dc160f53bafccbe604852523": {
+   "chain": "ethereum",
+   "address": "0x5126ec5e2d103295dc160f53bafccbe604852523",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 0,
+   "first_seen": "2025-06-25T18:13:59Z",
+   "last_seen": "2025-06-28T08:16:59Z"
+  },
+  "0x0a53ba0871b61d48b596ebc386cc4a80debdf7ce": {
+   "chain": "ethereum",
+   "address": "0x0a53ba0871b61d48b596ebc386cc4a80debdf7ce",
+   "is_contract": false,
+   "balance_wei": 1212991562899,
+   "tx_count": 6,
+   "first_seen": "2025-05-30T17:58:35Z",
+   "last_seen": "2026-04-04T19:02:59Z"
   }
  },
  "transfers": {

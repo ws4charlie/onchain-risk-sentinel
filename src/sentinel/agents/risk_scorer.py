@@ -14,6 +14,8 @@ summary, and decides level, score and action only when no rule applies.
 | counterparty_sanction | `counterparty_sanctions_hit` with exposure   | high if  | 80/70 | hold+  |
 |                       | share >= 10% (high when >= 50%)              | >= 50%,  |       |        |
 |                       |                                              | else med |       |        |
+| scam_report_review    | `scam_report` with any other category        | medium   | 65    | hold+  |
+|                       | (ponzi, honeypot, fake_token, ...)           |          |       |        |
 | counterparty_mixer    | `counterparty_mixer` with exposure >= 20%    | medium   | 65    | hold+  |
 | peel_chain            | `flow_features.peel_chain`                   | medium   | 65    | hold+  |
 | fresh_inflow          | fresh destination, >= 50% of inflow from     | medium   | 60    | hold+  |
@@ -27,6 +29,9 @@ fix the outcome. Exposure share is the counterparty's share of the destination's
 inflow or outflow (whichever is larger) in its primary asset; see `screening.py`.
 
 Why these thresholds (they are about real flows, not a test fixture):
+- Non-blocking scam categories hold for review: the user is most likely the victim,
+  so blocking outright is too harsh, but letting the funds go silently fails to protect
+  them. The verdict also carries a `user_notice` (see `notices.py`).
 - 10% for sanctioned counterparties: any direct exposure matters, but attackers
   "dust" arbitrary addresses with tiny transfers from sanctioned wallets, so a
   floor on share keeps dust from forcing reviews; 10% is still well below "funded by".
@@ -54,6 +59,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from pydantic import BaseModel, ConfigDict, Field
 
 from sentinel.agents import prompts
+from sentinel.agents.notices import user_notice
 from sentinel.agents.state import Node, TriageState
 from sentinel.agents.structured import ask_structured
 from sentinel.core.config import Settings
@@ -154,6 +160,8 @@ def apply_rules(findings: Mapping[str, Finding], case: Case | None = None) -> Ru
         if top >= SANCTIONED_EXPOSURE_HIGH:
             return _hold("counterparty_sanction", RiskLevel.HIGH, 80)
         return _hold("counterparty_sanction", RiskLevel.MEDIUM, 70)
+    if any(e.kind == "scam_report" for e in evidence):
+        return _hold("scam_report_review", RiskLevel.MEDIUM, 65)
     if any(e.kind == "counterparty_mixer" and _share(e) >= MIXER_EXPOSURE_MIN for e in evidence):
         return _hold("counterparty_mixer", RiskLevel.MEDIUM, 65)
     features = [e.data for e in evidence if e.kind == "flow_features"]
@@ -210,6 +218,7 @@ def make_risk_scorer(model: BaseChatModel, settings: Settings) -> Node[dict[str,
             summary=assessment.summary,
             findings=list(findings.values()),
             needs_human_review=action != Action.ALLOW and score >= settings.review_threshold,
+            user_notice=user_notice(e for f in findings.values() for e in f.evidence),
         )
         return {"draft_verdict": draft}
 
