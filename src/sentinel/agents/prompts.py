@@ -6,7 +6,7 @@ compared in evals without touching graph code.
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Mapping, Sequence
 from datetime import UTC
 
 from sentinel.agents.state import CriticRequest, SpecialistName
@@ -110,9 +110,18 @@ def render_supervisor_input(
 
 
 def render_specialist_input(
-    case: Case, findings: Mapping[str, Finding], instruction: str | None
+    case: Case,
+    findings: Mapping[str, Finding],
+    instruction: str | None,
+    prechecks: Sequence[tuple[str, str]] = (),
 ) -> str:
     text = f"{render_case(case)}\n\nFindings from other specialists:\n{render_findings(findings)}"
+    if prechecks:
+        results = "\n".join(f"- {name}: {content}" for name, content in prechecks)
+        text += (
+            "\n\nDeterministic checks already run on the destination (no need to repeat "
+            f"them; include them in your assessment):\n{results}"
+        )
     if instruction:
         text += f"\n\nReviewer instruction for this run: {instruction}"
     return text

@@ -25,6 +25,7 @@ from typing import Any
 from langchain.tools import ToolRuntime
 from langchain_core.tools import BaseTool, tool
 
+from sentinel.agents import screening
 from sentinel.agents.state import SpecialistName
 from sentinel.core.ports import Ports
 from sentinel.core.schemas import Case, Chain, Evidence, normalize_address
@@ -81,6 +82,52 @@ def _source_errors[**P](
             return f"Error: data source failed ({type(exc).__name__}: {exc}).", []
 
     return wrapper
+
+
+Precheck = Callable[[Case], Awaitable[list[tuple[str, ToolResult]]]]
+
+
+async def _guarded(name: str, run: Awaitable[ToolResult]) -> tuple[str, ToolResult]:
+    try:
+        return name, await run
+    except Exception as exc:
+        return name, (f"Error: data source failed ({type(exc).__name__}: {exc}).", [])
+
+
+def build_prechecks(ports: Ports) -> dict[SpecialistName, Precheck]:
+    """Deterministic checks each specialist runs on the destination before its ReAct loop.
+
+    They do not depend on the model choosing to call a tool. Results (content and
+    evidence) are given to the model up front and always land in the finding.
+    """
+
+    async def chain_tracer(case: Case) -> list[tuple[str, ToolResult]]:
+        features = screening.compute_flow_features(ports, case.address, case.requested_at)
+        return [
+            (
+                "compare_with_known_addresses",
+                _result(find_lookalikes(case.address, case.account_context)),
+            ),
+            await _guarded("flow_features", _single(features)),
+        ]
+
+    async def sanctions(case: Case) -> list[tuple[str, ToolResult]]:
+        run = screening.screen_counterparty_sanctions(ports, case.address)
+        return [await _guarded("screen_counterparties_sanctions", _many(run))]
+
+    async def scam_intel(case: Case) -> list[tuple[str, ToolResult]]:
+        run = screening.screen_counterparty_intel(ports, case.address)
+        return [await _guarded("screen_counterparties_intel", _many(run))]
+
+    return {"chain_tracer": chain_tracer, "sanctions": sanctions, "scam_intel": scam_intel}
+
+
+async def _single(run: Awaitable[Evidence]) -> ToolResult:
+    return _result([await run])
+
+
+async def _many(run: Awaitable[list[Evidence]]) -> ToolResult:
+    return _result(await run)
 
 
 def _known_addresses(context: dict[str, Any]) -> Iterator[tuple[str, str]]:
@@ -293,9 +340,45 @@ def build_tools(ports: Ports) -> dict[SpecialistName, list[BaseTool]]:
             return _bad_address(address)
         return _result(find_lookalikes(address, runtime.context.case.account_context))
 
+    @tool(response_format="content_and_artifact")
+    @_source_errors
+    async def flow_features(address: str, runtime: ToolRuntime[SpecialistContext]) -> ToolResult:
+        """Compute age, inflow/outflow, fresh-funder share and peel-chain signal for an address."""
+        try:
+            address = normalize_address(address)
+        except ValueError:
+            return _bad_address(address)
+        at = runtime.context.case.requested_at
+        return _result([await screening.compute_flow_features(ports, address, at)])
+
+    @tool(response_format="content_and_artifact")
+    @_source_errors
+    async def screen_counterparties_sanctions(address: str) -> ToolResult:
+        """Screen an address's largest counterparties (by value) against sanctions lists."""
+        try:
+            address = normalize_address(address)
+        except ValueError:
+            return _bad_address(address)
+        return _result(await screening.screen_counterparty_sanctions(ports, address))
+
+    @tool(response_format="content_and_artifact")
+    @_source_errors
+    async def screen_counterparties_intel(address: str) -> ToolResult:
+        """Check an address's largest counterparties for scam reports and mixer labels."""
+        try:
+            address = normalize_address(address)
+        except ValueError:
+            return _bad_address(address)
+        return _result(await screening.screen_counterparty_intel(ports, address))
+
     return {
-        "chain_tracer": [get_address_profile, get_recent_transfers, compare_with_known_addresses],
-        "sanctions": [check_sanctions],
-        "scam_intel": [lookup_scam_reports],
+        "chain_tracer": [
+            get_address_profile,
+            get_recent_transfers,
+            compare_with_known_addresses,
+            flow_features,
+        ],
+        "sanctions": [check_sanctions, screen_counterparties_sanctions],
+        "scam_intel": [lookup_scam_reports, screen_counterparties_intel],
         "pattern_analyst": [search_patterns],
     }

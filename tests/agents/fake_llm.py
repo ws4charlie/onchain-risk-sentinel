@@ -74,6 +74,15 @@ def queued(schema: type[BaseModel], answers: Iterable[dict[str, Any]], default: 
     return policy
 
 
+def _evidence_items(content: str) -> list[dict[str, Any]]:
+    """Tool content is a JSON list of evidence, or an error string."""
+    try:
+        items = json.loads(content)
+    except json.JSONDecodeError:
+        return []
+    return items if isinstance(items, list) else []
+
+
 _ADDRESS = re.compile(r"0x[0-9a-f]{40}")
 
 
@@ -100,11 +109,13 @@ def specialist_policy(assessment: type[BaseModel]) -> Policy:
                 calls.append({"name": name, "args": args, "id": f"call_{uuid.uuid4().hex[:8]}"})
             return AIMessage(content="", tool_calls=calls)
 
-        kinds = [e["kind"] for m in results for e in json.loads(str(m.content))]
+        kinds = [e["kind"] for m in results for e in _evidence_items(str(m.content))]
         if "sanctions_hit" in kinds:
             signal, rationale = "critical", "The address is on a sanctions list."
         elif "scam_report" in kinds or "lookalike_match" in kinds:
             signal, rationale = "high", f"Adverse evidence: {', '.join(kinds)}."
+        elif any(k.startswith("counterparty_") and k != "counterparty_clear" for k in kinds):
+            signal, rationale = "medium", f"Counterparty exposure: {', '.join(kinds)}."
         else:
             signal, rationale = "none", f"Tool results show no risk: {', '.join(kinds)}."
         return answer(assessment, risk_signal=signal, confidence=0.9, rationale=rationale)
