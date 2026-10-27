@@ -80,19 +80,12 @@ eval snapshots all implement the same ports. Every role's model is a config stri
 
 ```bash
 uv sync                      # add --extra tracing for Langfuse
-cp .env.example .env         # then fill in the keys below
+cp .env.example .env         # then fill in your keys
 ```
 
-| Variable | Needed for |
-|---|---|
-| `OPENROUTER_API_KEY` | the default model, Gemini 3.5 Flash-Lite, for every role (change per role with `SENTINEL_*_MODEL`) |
-| `OPENAI_API_KEY`, `GOOGLE_API_KEY` | GPT models; Gemini embeddings for pattern search |
-| `SENTINEL_ETH_RPC_URLS` | chain data: comma-separated mainnet RPC URLs, tried in order |
-| `SENTINEL_ALCHEMY_API_KEY` | address history (Alchemy Transfers API) |
-| `SENTINEL_ETHERSCAN_API_KEY` | optional: last fallback and contract names |
-| `SENTINEL_DATABASE_URL` | optional: Postgres checkpoints and the pgvector pattern index |
-| `SENTINEL_EMBEDDING_PROVIDER` | `google` (default, uses `GOOGLE_API_KEY`) or `hashing` (offline) |
-| `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST` | optional tracing |
+`.env.example` lists every variable with a short comment. The minimum to run a
+case: `OPENROUTER_API_KEY`, `SENTINEL_ETH_RPC_URLS`, `SENTINEL_ALCHEMY_API_KEY`, and
+`GOOGLE_API_KEY` for pattern embeddings (or `SENTINEL_EMBEDDING_PROVIDER=hashing`).
 
 ### 2. Postgres + pgvector (optional, macOS with Homebrew)
 
