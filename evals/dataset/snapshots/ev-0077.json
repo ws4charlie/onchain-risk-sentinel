@@ -1,0 +1,35 @@
+{
+ "case_id": "ev-0077",
+ "origin": "recorded",
+ "recorded_at": "2026-10-25T22:20:47.492285Z",
+ "sources": {
+  "chain_data": "rpc_with_etherscan_fallback",
+  "sanctions": "ofac_snapshot",
+  "scam_intel": "feeds"
+ },
+ "profiles": {
+  "0x3cbded43efdaf0fc77b9c55f6fc9988fcc9b757d": {
+   "chain": "ethereum",
+   "address": "0x3cbded43efdaf0fc77b9c55f6fc9988fcc9b757d",
+   "is_contract": false,
+   "balance_wei": 0,
+   "tx_count": 0
+  }
+ },
+ "transfers": {
+  "0x3cbded43efdaf0fc77b9c55f6fc9988fcc9b757d": []
+ },
+ "sanctions": {
+  "0x3cbded43efdaf0fc77b9c55f6fc9988fcc9b757d": {
+   "address": "0x3cbded43efdaf0fc77b9c55f6fc9988fcc9b757d",
+   "list_name": "OFAC SDN",
+   "entity_name": "SOUTHFRONT",
+   "program": "CYBER2, ELECTION-EO13848, NPWMD",
+   "listed_on": "2026-10-21T00:00:00Z",
+   "source_url": "https://sanctionssearch.ofac.treas.gov/"
+  }
+ },
+ "scam_reports": {
+  "0x3cbded43efdaf0fc77b9c55f6fc9988fcc9b757d": []
+ }
+}

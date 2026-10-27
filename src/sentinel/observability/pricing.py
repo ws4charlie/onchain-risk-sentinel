@@ -117,6 +117,20 @@ DEFAULT_PRICES = PriceTable(
             checked_on=_CHECKED,
             note="Paid tier; a free tier exists.",
         ),
+        "openrouter:google/gemini-3.8-flash": ModelPrice(
+            input_per_mtok=0.825,
+            output_per_mtok=4.125,
+            source="https://openrouter.ai/google/gemini-3.8-flash",
+            checked_on="2026-10-26",
+            note="OpenRouter list price.",
+        ),
+        "openrouter:google/gemini-3.5-flash-lite": ModelPrice(
+            input_per_mtok=0.30,
+            output_per_mtok=2.50,
+            source="https://openrouter.ai/google/gemini-3.5-flash-lite",
+            checked_on="2026-10-26",
+            note="OpenRouter list price.",
+        ),
         "ollama:*": _local("Local open-source model: no per-token price (hardware cost only)."),
     }
 )

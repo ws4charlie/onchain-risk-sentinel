@@ -49,3 +49,23 @@ async def test_fake_sanctions_hit() -> None:
 def test_settings_model_for_role(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("SENTINEL_CRITIC_MODEL", "ollama:qwen3:8b")
     assert Settings(_env_file=None).model_for("critic") == "ollama:qwen3:8b"  # type: ignore[call-arg]
+
+
+def test_openrouter_models_use_openrouter_endpoint(monkeypatch: pytest.MonkeyPatch) -> None:
+    from langchain_openai import ChatOpenAI
+
+    from sentinel.core.llm import OPENROUTER_BASE_URL, chat_model
+
+    monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
+    model = chat_model("openrouter:google/gemini-3.5-flash-lite", temperature=0)
+    assert isinstance(model, ChatOpenAI)
+    assert model.model_name == "google/gemini-3.5-flash-lite"
+    assert model.openai_api_base == OPENROUTER_BASE_URL
+
+
+def test_openrouter_requires_key(monkeypatch: pytest.MonkeyPatch) -> None:
+    from sentinel.core.llm import chat_model
+
+    monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+    with pytest.raises(RuntimeError, match="OPENROUTER_API_KEY"):
+        chat_model("openrouter:google/gemini-3.5-flash-lite")

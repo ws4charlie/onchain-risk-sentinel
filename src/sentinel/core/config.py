@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
     # Model per role, as "<provider>:<model>" strings for langchain's init_chat_model.
     supervisor_model: str = "openai:gpt-5.4-mini"
-    specialist_model: str = "google_genai:gemini-flash-latest"
+    specialist_model: str = "openrouter:google/gemini-3.8-flash"
     scorer_model: str = "openai:gpt-5.4-mini"
     critic_model: str = "openai:gpt-5.4-mini"
     temperature: float = 0.0

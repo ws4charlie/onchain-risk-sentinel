@@ -10,24 +10,26 @@ import os
 import shutil
 from typing import Any
 
-from langchain.chat_models import init_chat_model
 from pydantic import BaseModel, ConfigDict, Field
 
 from sentinel.agents import Models
 from sentinel.core.config import Role, Settings
+from sentinel.core.llm import chat_model
 
 ROLES: tuple[Role, ...] = ("supervisor", "specialist", "scorer", "critic")
 
 GPT_MINI = "openai:gpt-5.4-mini"
 GPT_NANO = "openai:gpt-5.4-nano"
-GEMINI_FLASH = "google_genai:gemini-flash-latest"
-GEMINI_FLASH_LITE = "google_genai:gemini-3.5-flash-lite"
+# Gemini through OpenRouter: the Gemini API free tier allows too few requests a day for evals.
+GEMINI_FLASH = "openrouter:google/gemini-3.8-flash"
+GEMINI_FLASH_LITE = "openrouter:google/gemini-3.5-flash-lite"
 OLLAMA_QWEN = "ollama:qwen3:8b"
 
 PROVIDER_KEYS: dict[str, str] = {
     "openai": "OPENAI_API_KEY",
     "google_genai": "GOOGLE_API_KEY",
     "anthropic": "ANTHROPIC_API_KEY",
+    "openrouter": "OPENROUTER_API_KEY",
 }
 
 
@@ -42,7 +44,7 @@ class ModelConfig(BaseModel):
     critic: str
     model_kwargs: dict[str, dict[str, Any]] = Field(
         default_factory=dict,
-        description="Extra init_chat_model arguments per model string, e.g. reasoning=False.",
+        description="Extra chat model arguments per model string, e.g. reasoning=False.",
     )
 
     def model_for(self, role: Role) -> str:
@@ -73,7 +75,7 @@ def build_models(config: ModelConfig, settings: Settings) -> Models:
     def make(role: Role) -> Any:
         model = config.model_for(role)
         kwargs = {"temperature": settings.temperature, **config.model_kwargs.get(model, {})}
-        return init_chat_model(model, **kwargs)
+        return chat_model(model, **kwargs)
 
     return Models(
         supervisor=make("supervisor"),
