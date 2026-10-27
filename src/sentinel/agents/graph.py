@@ -35,7 +35,7 @@ from sentinel.agents.state import (
     initial_state,
 )
 from sentinel.agents.supervisor import SCORE_NODE, make_supervisor
-from sentinel.agents.tools import build_tools
+from sentinel.agents.tools import build_prechecks, build_tools
 from sentinel.core.config import Settings
 from sentinel.core.ports import Ports
 from sentinel.core.schemas import (
@@ -89,6 +89,7 @@ def build_graph(
     built with `serde=checkpoint_serde()`.
     """
     tools = build_tools(ports)
+    prechecks = build_prechecks(ports)
     builder = StateGraph(TriageState)
     builder.add_node(
         "supervisor",
@@ -96,7 +97,9 @@ def build_graph(
         destinations=(*SPECIALISTS, SCORE_NODE),
     )
     for name in SPECIALISTS:
-        builder.add_node(name, make_specialist(name, models.specialist, tools[name]))
+        builder.add_node(
+            name, make_specialist(name, models.specialist, tools[name], prechecks.get(name))
+        )
         builder.add_edge(name, "supervisor")
     builder.add_node(SCORE_NODE, make_risk_scorer(models.scorer, settings))
     builder.add_node(
